@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu - Văn phòng phẩm VPP</title>
+    <link rel="stylesheet" href="../style/about.css" type="text/css">
+</head>
+<body>
+    <header id="header">
+        <div class="top-bar">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="VPP Online Logo">
+            </a>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Tìm kiếm sản phẩm...">
+                <button class="search-btn">
+                    <i class="fas fa-search">	&#128269;</i>
+                </button>
+            </div>
+
+            <div class="user-actions">
+                <div  class="cart-btn" onclick="toggleCartDetails()">
+                    <a class="fas fa-shopping-cart">&#128722;</a>
+                    <span class="cart-count" id="cart-count">0</span>
+                    <div id="cart-details">
+                        <h4>Giỏ hàng</h4>
+                        <ul id="cart-items"></ul>
+                        <a id="checkout" href="../module/checkout.html">Thanh toán</a>
+                    </div>
+                </div>
+                <div class="auth-links">
+                    <a href="login/login.html" class="login">Đăng nhập</a>
+                    <span>/</span>
+                    <a href="login/signup.html" class="register">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-menu">
+            <a href="index.html">Trang chủ</a>
+            <li class="has-submenu">
+                <a href="#">Sản phẩm</a>
+                <ul class="submenu">
+                    <li><a href="#" onclick="redirectToCategory('giay')">Giấy</a></li>
+                    <li><a href="#" onclick="redirectToCategory('but')">Bút</a></li>
+                    <li><a href="#" onclick="redirectToCategory('khac')">Khác</a></li>
+                </ul>
+            </li>
+            <a href="#">Khuyến mãi</a>
+            <a href="#">Hướng dẫn</a>
+            <a href="../module/checkout.html">Thanh toán</a>
+            <a href="about.html">Về chúng tôi</a>
+        </nav>
+    </header>
+
+    <main class="about-container">
+        <h2>Giới thiệu về VPP</h2>
+        <p>
+            VPP là cửa hàng trực tuyến chuyên cung cấp các sản phẩm văn phòng phẩm đa dạng, chất lượng cao với mức giá cạnh tranh.
+            Chúng tôi hiểu rằng văn phòng phẩm không chỉ là vật dụng mà còn là nguồn cảm hứng và động lực trong công việc, học tập hàng ngày.
+        </p>
+
+        <h3>Sứ mệnh của chúng tôi</h3>
+        <p>
+            Đem đến trải nghiệm mua sắm văn phòng phẩm tiện lợi, nhanh chóng và đáng tin cậy cho khách hàng trên toàn quốc.
+        </p>
+
+        <h3>Chúng tôi cung cấp</h3>
+        <ul>
+            <li>Bút, vở, sổ tay, giấy in</li>
+            <li>Đồ dùng học tập cho học sinh, sinh viên</li>
+            <li>Dụng cụ văn phòng: kẹp giấy, bấm kim, máy tính, thước kẻ,...</li>
+            <li>Các sản phẩm tiện ích khác phục vụ làm việc & sáng tạo</li>
+        </ul>
+
+        <h3>Cam kết</h3>
+        <p>
+            VPP cam kết mang lại sự hài lòng cho khách hàng với sản phẩm chất lượng, giao hàng nhanh chóng và chính sách đổi trả minh bạch.
+        </p>
+
+        <h3>Liên hệ với chúng tôi</h3>
+        <p>Email: vpp.support@gmail.com | Hotline: 0123 456 789</p>
+    </main>
+
+    <section id="services">
+        <div class="service-item" onclick="selectProduct()">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>&#128666; Miễn phí vận chuyển</h3>
+            <p>Cho đơn hàng từ 300.000đ</p>
+        </div>
+        <div class="service-item" onclick="selectProduct()">
+            <i class="fas fa-undo"></i>
+            <h3>&#8635; Đổi trả 7 ngày</h3>
+            <p>Thủ tục đơn giản</p>
+        </div>
+        <div class="service-item" onclick="selectProduct()">
+            <i class="fas fa-lock"></i>
+            <h3>&#x1F512; Thanh toán an toàn</h3>
+            <p>Bảo mật 100%</p>
+        </div>
+    </section>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h4>Về chúng tôi</h4>
+            <p>Chuyên cung cấp văn phòng phẩm chất lượng cao</p>
+        </div>
+        <div class="footer-section links">
+            <h4>Liên kết</h4>
+            <ul>
+                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="#">Điều khoản sử dụng</a></li>
+                <li><a href="#">Hướng dẫn mua hàng</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h4>Liên hệ</h4>
+            <p>Email: vuvietmanh2208@gmail.com | nguyenbui0410@gmail.com</p>
+            <p>Hotline: 1800 1234</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 VPP Online. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
+<script src="../products.js" defer></script>
+<script src="../cart.js" defer></script>
+<script src="../login.js" defer></script>
+<script src="../type.js" defer></script>
