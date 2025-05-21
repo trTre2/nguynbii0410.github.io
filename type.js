@@ -1,19 +1,15 @@
-function redirectToCategory(type) {
-    window.location.href = `module/category.html?type=${encodeURIComponent(type)}`;
-  }
-
-  const params = new URLSearchParams(window.location.search);
-  const selectedType = params.get('type');
-  const productContainer = document.getElementById("filtered-products");
-
+const p1 = new URLSearchParams(window.location.search);
+const selectedType = p1.get('type');
+const productContainer = document.getElementById("filtered-products");
 const filteredProducts = products.filter(p => p.type === selectedType);
 
 if (filteredProducts.length === 0) {
   productContainer.innerHTML = "<p>Không có sản phẩm nào thuộc loại này.</p>";
-} else {
+} 
+else {
   filteredProducts.forEach(product => {
     const div = document.createElement("div");
-    div.className = "product-item"; // 👉 áp class chính cho sản phẩm
+    div.className = "product-item"; //áp class chính cho sản phẩm
     div.onclick = () => selectProduct(product.id);
   div.innerHTML = `
     <img src="${product.image}" alt="${product.name}">
@@ -23,5 +19,6 @@ if (filteredProducts.length === 0) {
   `;
     productContainer.appendChild(div);
   });
-}function redirectToCategory(type) {
+}
+function redirectToCategory(type) {
  window.location.href = `../module/category.html?type=${encodeURIComponent(type)}`;}

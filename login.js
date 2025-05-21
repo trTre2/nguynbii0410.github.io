@@ -4,7 +4,6 @@ const accounts = [
     { username: "ghi", password: "890", email: "ghi890@gmail.com" }
 ];
 function login() {
-    // Lấy giá trị người dùng nhập vào
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
   
@@ -13,7 +12,7 @@ function login() {
   
     // Kiểm tra trong localStorage
     const foundAccount = storedAccounts.find(acc =>
-      acc.username === username && acc.password === password
+    acc.username === username && acc.password === password
     );
   
     // Kiểm tra trong mảng accounts cố định
@@ -24,7 +23,7 @@ function login() {
     if (foundAccount || staticAccount) {
       alert('Đăng nhập thành công!');
       localStorage.setItem('loggedInUser', username);
-      window.location.href = '../../index.html'; // hoặc đường dẫn bạn muốn
+      window.location.href = '../../index.html';
     } else {
       alert('Sai tên đăng nhập hoặc mật khẩu!');
     }
@@ -58,7 +57,7 @@ function signup() {
     // Lưu lại vào localStorage
     localStorage.setItem('accounts', JSON.stringify(account));
     alert("Đăng ký thành công!");
-    window.location.href = 'login.html'; // Chuyển hướng đến trang đăng nhập
+    window.location.href = 'login.html';
 }
 
 function updateAuthLinks() {
@@ -75,7 +74,7 @@ function updateAuthLinks() {
             logoutBtn.addEventListener('click', function () {
                 alert('Đã đăng xuất!');
                 localStorage.removeItem('loggedInUser');
-                            // Khôi phục giao diện chưa đăng nhập
+                // Khôi phục giao diện chưa đăng nhập
                 authLinks.innerHTML = `
                     <a href="../module/login/login.html">Đăng nhập</a> | 
                     <a href="../module/login/signup.html">Đăng ký</a>
@@ -89,9 +88,8 @@ function updateAuthLinks() {
             <a href="../module/login/signup.html">Đăng ký</a>
         `;
     }
-}// Khi tài liệu sẵn sàng
+}
 document.addEventListener("DOMContentLoaded", () => {
-    // Form đăng nhập
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
@@ -99,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
             login();
         });
     }
-    // Form đăng ký
     const signupForm = document.getElementById('signupForm');
     if (signupForm) {
         signupForm.addEventListener('submit', function(e) {
@@ -107,6 +104,5 @@ document.addEventListener("DOMContentLoaded", () => {
             signup();
         });
     }
-    // Cập nhật giao diện người dùng (dành cho index.html)
     updateAuthLinks();
 });

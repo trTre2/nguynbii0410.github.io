@@ -150,7 +150,25 @@ const products = [
 function selectProduct(id) {
   const product = products.find(p => p.id === id);
   if (product) {
-    localStorage.setItem("selectedProduct", JSON.stringify(product));
-    window.location.href = "../module/products.html";
+    try {
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      const url = new URL('module/products.html', window.location.origin);
+      url.searchParams.set('type', product.type);
+      window.location.href = url.href;
+    } catch (error) {
+      console.error('Error selecting product:', error);
+    }
   }
 }
+const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
+const params = new URLSearchParams(window.location.search);
+const type = params.get("type");
+const sameType = products.filter(p => p.type === type && p.id !== selectedProduct.id);
+const container = document.getElementById("same-type");
+sameType.forEach(p => {
+  const item = document.createElement("div");
+  item.className = "same-type";
+  item.onclick = () => selectProduct(p.id);
+  item.innerHTML = `<img src="${p.image}" alt="${p.name}" style="width:100px; height:auto;"><p>${p.name}</p>`;
+  container.appendChild(item);
+});

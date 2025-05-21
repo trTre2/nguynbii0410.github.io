@@ -76,12 +76,12 @@ body {
 #cart-details {
     display: none;
     position: absolute; /* Quan trọng để đè lên */
-    left: -100px; /* Gắn về bên trái icon */
+    left: -500px; /* Gắn về bên trái icon */
     top: 100%; /* Đặt ngay dưới icon */
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    width: 600px;
     max-height: 400px;
     overflow-y: auto;
     z-index: 999;
@@ -256,7 +256,7 @@ body {
 
 .product-item img {
     max-width: 200px;
-    height: 200px;
+    height: 160px;
     object-fit: contain;
     margin-bottom: 15px;
 }

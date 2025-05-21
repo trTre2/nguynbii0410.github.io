@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Văn Phòng Phẩm Online</title>
+    <link rel="icon" href="../images/logo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="../style/products.css">
 </head>
 <body>
@@ -87,6 +88,9 @@
               <h2>Thông tin sản phẩm</h2>
               <p id="product-description">Đang tải mô tả...</p>
             </div>
+            <h3 style="text-align: center;">SẢN PHẨM TƯƠNG TỰ</h3>
+            <div id="same-type">
+            </div>
             <section id="services">
                 <div class="service-item" >
                     <i class="fas fa-shipping-fast"></i>
@@ -126,7 +130,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 VPP Online. All rights reserved.</p>
+                <p>&copy; 2025 VPP Online. All rights reserved.</p>
             </div>
         </footer>
     </div> 
@@ -143,9 +147,8 @@
           document.getElementById("product-image").src = product.image;
           document.getElementById("product-price").innerHTML = `Giá: <strong>${product.price.toLocaleString()}đ</strong>`;
           document.getElementById("product-description").innerHTML = product.description.replace(/\n/g, "<br>");
-          document.getElementById("product-code").textContent = "Mã sản phẩm: " + product.id;
+          document.getElementById("product-code").textContent = "Mã sản phẩm: VPP0"+ product.id;
         }
-        
       </script>
 </body>
 </html>

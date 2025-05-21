@@ -57,5 +57,6 @@ window.onload = function() {
 
         localStorage.removeItem('cart');
         alert('Cảm ơn bạn đã mua hàng! Đơn hàng của bạn đã được thanh toán.');
+        location.reload()
     };
 };
