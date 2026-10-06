@@ -74,6 +74,71 @@ dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px}dt{color:va
 .music-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}.music-card{overflow:hidden}.music-frame{display:block;width:100%;height:190px;border:0;border-radius:10px;margin-top:12px;background:#000}.music-spotify{height:152px}@media(max-width:820px){.music-frame{height:180px}}
 #music{--sa:#fb7185}.slot{min-height:40px;margin-top:12px}.slot .music-frame{margin-top:0}
 </style>
+<style id="portfolio-v2">
+:root{--bg:#050b15;--card:#0b1422;--card2:#0e1b2d;--bd:#1b304b;--tx:#edf4ff;--mut:#8396b0;--ac:#1ea7ff;--glow:rgba(30,167,255,.28)}
+body{background:#050b15;background-image:radial-gradient(800px 500px at 75% -10%,rgba(22,111,190,.18),transparent 65%),radial-gradient(600px 500px at 15% 35%,rgba(30,167,255,.08),transparent 70%);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+header{position:fixed;inset:0 auto 0 0;width:220px;height:100vh;padding:0;background:rgba(4,10,19,.96);border-right:1px solid #17304d;backdrop-filter:blur(14px)}
+nav{height:100%;max-width:none;display:flex;flex-direction:column;align-items:stretch;padding:22px 12px}
+nav .logo{font-size:17px;margin:0 0 28px;padding:0 10px;color:#fff}
+nav .links{display:flex;flex-direction:column;gap:5px}
+nav .links a{padding:11px 13px;border-radius:9px;font-size:14px;color:#91a6c0}
+nav .links a:hover,nav .links a.on{color:#fff;background:linear-gradient(90deg,rgba(30,167,255,.16),rgba(30,167,255,.04));box-shadow:inset 2px 0 #1ea7ff}
+#theme{margin-top:auto}
+#menu{display:none}
+main{max-width:none;margin:0 0 0 220px;padding:0 42px 30px}
+section{padding:42px 0 0}
+#home{padding-top:34px}
+.hero{display:block}
+.hero>.card.idc{min-height:270px;padding:34px 42px;border-radius:18px;border:1px solid #173653;background:linear-gradient(110deg,#0b1625 0%,#0a1421 48%,#08111d 100%);box-shadow:0 18px 60px rgba(0,0,0,.22);position:relative;overflow:hidden}
+.hero>.card.idc:after{content:"";position:absolute;inset:auto -80px -120px auto;width:430px;height:300px;background:radial-gradient(circle,rgba(30,167,255,.15),transparent 65%);pointer-events:none}
+.idc .av{width:132px;height:132px;flex:none;border:2px solid #168ee0;box-shadow:0 0 28px var(--glow);object-fit:cover}
+.idc>div:last-child{position:relative;z-index:1}
+.hero h1{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.03em}
+.sub{color:#a9bad0}
+.hero .tiles{display:flex;gap:10px;margin-top:12px}
+.hero .tile{min-height:0;padding:12px 15px;border-radius:10px}
+.hero .tile strong{font-size:13px}
+h2{font-size:1.55rem;letter-spacing:-.02em}
+.kick{color:#36b7ff;letter-spacing:.08em}
+.card{background:linear-gradient(145deg,rgba(13,27,44,.94),rgba(7,16,28,.94));border:1px solid #17304a;border-radius:13px;box-shadow:0 8px 30px rgba(0,0,0,.13)}
+.card:hover{transform:translateY(-2px);border-color:#287ab1;box-shadow:0 12px 38px rgba(0,0,0,.2)}
+.btn{border-color:#1d3855;background:#0b1727;border-radius:8px}.btn.p{background:#168ee0;box-shadow:0 5px 20px rgba(30,167,255,.2)}
+.tag{border-color:#24415f;background:rgba(30,167,255,.04)}
+main section .card{border-top:1px solid #17304a}
+#games{grid-area:games}#music{grid-area:music}#projects{grid-area:projects}#tech{grid-area:tech}#about{grid-area:about}
+#games .lib{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#games .bar{margin-bottom:12px}
+#games .gc{min-width:0}
+#games .cov{aspect-ratio:16/10;border-radius:11px;background:linear-gradient(145deg,#10253a,#07111d);border-color:#1d3c59}
+#games .game-logo{width:68%!important;height:68%!important;inset:16%!important;object-fit:contain!important;padding:0}
+#games .gc:hover .cov{transform:translateY(-3px);border-color:#1ea7ff;box-shadow:0 0 25px rgba(30,167,255,.15)}
+#games .gc h3{font-size:.96rem;margin-top:9px}
+#games .gc .mut{font-size:12px}
+.badge{background:#167fc5;color:#fff}
+.fav{color:#ffd34e}
+#games .gc:focus-visible{outline:2px solid #1ea7ff;outline-offset:3px}
+#music .music-grid{grid-template-columns:1fr;gap:0}
+#music .music-card{display:grid;grid-template-columns:1fr auto;align-items:center;padding:12px 14px;border-radius:0;border-left:0;border-right:0}
+#music .music-card:first-child{border-radius:12px 12px 0 0}#music .music-card:last-child{border-radius:0 0 12px 12px}
+#music .music-card .slot{grid-column:2;grid-row:1 / span 2;margin:0}
+#music .music-frame{width:330px;height:180px}
+#projects .showcase{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#projects .pj{display:block;border-radius:13px}
+#projects .pjimg{min-height:120px}
+#projects .pjb{padding:15px}
+#projects .pjb ul{display:none}
+#tech .row{display:grid;grid-template-columns:repeat(4,1fr)}
+#tech .row .card{padding:13px!important;text-align:center}
+#about .two{grid-template-columns:1.3fr .8fr}
+#about .grid{grid-template-columns:repeat(2,1fr)}
+#about .grid .card{padding:14px}
+.game-modal{background:rgba(1,6,12,.78)}
+.game-dialog{background:#081321;border-color:#1c4568;box-shadow:0 25px 100px rgba(0,0,0,.6)}
+.game-dialog .cov{background:#0c1d2f}
+footer{margin-left:220px}
+@media(min-width:821px){main{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.78fr);gap:0 18px;align-items:start}#home{grid-column:1/-1}#about,#interests,#github,#education,#timeline,#contact{grid-column:1/-1}#games{grid-column:1}#music{grid-column:2}#projects{grid-column:1}#tech{grid-column:2}}
+@media(max-width:820px){header{width:100%;height:auto;inset:0 0 auto 0}nav{height:auto;flex-direction:row;align-items:center;padding:10px 12px}.logo{margin-right:auto!important}nav .links{display:none}.links.open{display:flex;position:absolute;top:100%;left:0;right:0;padding:8px 12px;background:#07101d;border-bottom:1px solid #17304a}#menu{display:inline-block;margin-left:4px}main{margin:0;padding:74px 14px 25px}footer{margin:0}#games .lib{grid-template-columns:repeat(2,minmax(0,1fr))}#projects .showcase{grid-template-columns:1fr}#tech .row{grid-template-columns:repeat(2,1fr)}#about .grid{grid-template-columns:1fr}#music .music-card{grid-template-columns:1fr}.music-frame{width:100%!important}}
+</style>
 </head>
 <body>
 <header><nav aria-label="Main"><a class="logo" href="#home" id="logo"></a><div class="links" id="links"></div>
@@ -98,7 +163,7 @@ const DATA = {
   github: { username: "trTre2", maxRepos: 6, cacheMinutes: 30 },
   profile: {
     name: "Bùi Thiết Nguyên", major: "Khoa học máy tính", university: "Trường Đại học Hạ Long", className: "K9.KM9",
-    tagline: "Học Khoa học máy tính, làm project, chơi game và nghe nhạc — phần còn lại thì để lúc có hứng tính tiếp.", avatar: "", location: "Hạ Long", status: "Sinh viên Khoa học máy tính",
+    tagline: "Học Khoa học máy tính, làm project, chơi game và nghe nhạc — phần còn lại thì để lúc có hứng tính tiếp.", avatar: "data:image/jpeg;base64,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", location: "Hạ Long", status: "Sinh viên Khoa học máy tính",
     bio: "Mình học Khoa học máy tính ở Hạ Long. Trang này là chỗ gom những thứ mình đang học, đã làm, đang chơi và đang nghe — không phải một bản CV thu gọn.",
     story: [
       "Mình vào Đại học Hạ Long từ năm 2023 và đang học Khoa học máy tính. Phần lớn thời gian ở trường xoay quanh code, đồ án, báo cáo và những thứ phải tự mày mò mới chạy được.",
@@ -158,7 +223,7 @@ const DATA = {
     // { name:"", description:"", language:"", stars:0, forks:0, updated:"2025-01-01", url:"", homepage:"" }
   ],
   games: [ // status: Playing | Previously Played | Paused | Completed | Dropped | Want to Play. wiki = tên bài Wikipedia để tự lấy ảnh bìa; điền cover = URL ảnh để ghi đè
-    { name: "Delta Force: Hawk Ops", wiki: "Delta Force: Hawk Ops", cover: "", platform: "PC / Mobile", genre: "FPS / Tactical Shooter", status: "Playing", favorite: true, description: "Game mình đang chơi hiện tại.", link: "" },
+    { name: "Delta Force: Hawk Ops", wiki: "Delta Force (2025 video game)", cover: "", platform: "PC / Mobile", genre: "FPS / Tactical Shooter", status: "Playing", favorite: true, description: "Game mình đang chơi hiện tại.", link: "" },
     { name: "Mindustry", wiki: "Mindustry", cover: "", platform: "PC / Mobile", genre: "Automation / Strategy", status: "Previously Played", favorite: true, description: "Chơi cả bản có mod.", link: "" },
     { name: "Liên Quân Mobile", wiki: "Arena of Valor", cover: "", platform: "Mobile", genre: "MOBA", status: "Previously Played", favorite: false, description: "", link: "" },
     { name: "Genshin Impact", wiki: "Genshin Impact", cover: "", platform: "PC / Mobile", genre: "Action RPG", status: "Previously Played", favorite: false, description: "", link: "" },
@@ -207,7 +272,7 @@ const sec = (id, title, body) => $("#" + id).innerHTML = `<p class="kick">${KICK
 const store = { get(k){ try { return localStorage.getItem(k) } catch { return null } }, set(k, v){ try { localStorage.setItem(k, v) } catch {} } };
 
 // Nav + theme
-const NAV = [["home","Trang chủ"],["about","Về mình"],["interests","Sở thích"],["music","Nhạc"],["games","Game"],["projects","Dự án"],["tech","Công nghệ"],["timeline","Hành trình"],["contact","Liên hệ"]];
+const NAV = [["home","⌂  Trang chủ"],["about","♙  Giới thiệu"],["projects","▣  Dự án"],["games","🎮  Game"],["music","♫  Âm nhạc"],["tech","▱  Công nghệ"],["contact","✉  Liên hệ"]];
 $("#links").innerHTML = NAV.map(([i, t]) => `<a href="#${i}">${t}</a>`).join("");
 $("#logo").textContent = P.name;
 $("#menu").onclick = () => { const o = $("#links").classList.toggle("open"); $("#menu").setAttribute("aria-expanded", o); };
@@ -305,9 +370,9 @@ loadGithub();
 const stat = ["Playing","Previously Played","Paused","Completed","Dropped","Want to Play"], plat = ["PC","Mobile","Console"];
 // Ảnh bìa: g.cover nếu có, không thì thumbnail Wikipedia (g.wiki), cache trong localStorage
 const coverCache = (() => { try { return JSON.parse(store.get("covers") || "{}"); } catch { return {}; } })();
-const coverImg = g => { const u = g.cover || coverCache[g.wiki || g.name]; return u ? img(u, "Ảnh bìa " + g.name, "") : esc(g.name.slice(0, 2).toUpperCase()); };
+const coverImg = g => { const u = g.cover || coverCache[g.wiki || g.name]; return u ? img(u, "Logo " + g.name, "game-logo") : esc(g.name.slice(0, 2).toUpperCase()); };
 async function loadCovers() {
-  await Promise.all(DATA.games.filter(g => !g.cover && coverCache[g.wiki || g.name] === undefined).map(async g => {
+  await Promise.all(DATA.games.filter(g => !g.cover && !coverCache[g.wiki || g.name]).map(async g => {
     const k = g.wiki || g.name; let u = "";
     try { const res = await fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + encodeURIComponent(k)); if (res.ok) u = (await res.json()).thumbnail?.source || ""; } catch {}
     coverCache[k] = u;
