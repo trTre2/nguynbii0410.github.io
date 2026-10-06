@@ -74,70 +74,154 @@ dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px}dt{color:va
 .music-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}.music-card{overflow:hidden}.music-frame{display:block;width:100%;height:190px;border:0;border-radius:10px;margin-top:12px;background:#000}.music-spotify{height:152px}@media(max-width:820px){.music-frame{height:180px}}
 #music{--sa:#fb7185}.slot{min-height:40px;margin-top:12px}.slot .music-frame{margin-top:0}
 </style>
-<style id="portfolio-v2">
-:root{--bg:#050b15;--card:#0b1422;--card2:#0e1b2d;--bd:#1b304b;--tx:#edf4ff;--mut:#8396b0;--ac:#1ea7ff;--glow:rgba(30,167,255,.28)}
-body{background:#050b15;background-image:radial-gradient(800px 500px at 75% -10%,rgba(22,111,190,.18),transparent 65%),radial-gradient(600px 500px at 15% 35%,rgba(30,167,255,.08),transparent 70%);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
-header{position:fixed;inset:0 auto 0 0;width:220px;height:100vh;padding:0;background:rgba(4,10,19,.96);border-right:1px solid #17304d;backdrop-filter:blur(14px)}
+<style id="portfolio-v3">
+:root{
+  --bg:#050a11;--panel:#0a1320;--panel2:#0d1928;--line:#20364d;
+  --text:#edf5ff;--muted:#8da1b7;--blue:#39a9ff;--blue2:#67c6ff;
+  --green:#28f19b;--gold:#e8b75c;--red:#ff5964;--glow:rgba(48,169,255,.22);
+}
+body{background:#050a11;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:
+ linear-gradient(rgba(20,65,95,.035) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(20,65,95,.035) 1px,transparent 1px);
+ background-size:38px 38px;mask-image:linear-gradient(to bottom,#000,transparent 90%);z-index:-1}
+header{position:fixed;inset:0 auto 0 0;width:222px;height:100vh;background:rgba(3,9,16,.96);
+ border-right:1px solid #18304a;backdrop-filter:blur(16px);z-index:50}
 nav{height:100%;max-width:none;display:flex;flex-direction:column;align-items:stretch;padding:22px 12px}
-nav .logo{font-size:17px;margin:0 0 28px;padding:0 10px;color:#fff}
+nav .logo{font-size:17px;color:#fff;margin:0 0 30px;padding:0 12px;font-weight:800}
+nav .logo:before{content:"</>";color:var(--blue);font-size:18px;margin-right:10px}
 nav .links{display:flex;flex-direction:column;gap:5px}
-nav .links a{padding:11px 13px;border-radius:9px;font-size:14px;color:#91a6c0}
-nav .links a:hover,nav .links a.on{color:#fff;background:linear-gradient(90deg,rgba(30,167,255,.16),rgba(30,167,255,.04));box-shadow:inset 2px 0 #1ea7ff}
-#theme{margin-top:auto}
-#menu{display:none}
-main{max-width:none;margin:0 0 0 220px;padding:0 42px 30px}
-section{padding:42px 0 0}
-#home{padding-top:34px}
-.hero{display:block}
-.hero>.card.idc{min-height:270px;padding:34px 42px;border-radius:18px;border:1px solid #173653;background:linear-gradient(110deg,#0b1625 0%,#0a1421 48%,#08111d 100%);box-shadow:0 18px 60px rgba(0,0,0,.22);position:relative;overflow:hidden}
-.hero>.card.idc:after{content:"";position:absolute;inset:auto -80px -120px auto;width:430px;height:300px;background:radial-gradient(circle,rgba(30,167,255,.15),transparent 65%);pointer-events:none}
-.idc .av{width:132px;height:132px;flex:none;border:2px solid #168ee0;box-shadow:0 0 28px var(--glow);object-fit:cover}
-.idc>div:last-child{position:relative;z-index:1}
-.hero h1{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.03em}
-.sub{color:#a9bad0}
-.hero .tiles{display:flex;gap:10px;margin-top:12px}
-.hero .tile{min-height:0;padding:12px 15px;border-radius:10px}
-.hero .tile strong{font-size:13px}
-h2{font-size:1.55rem;letter-spacing:-.02em}
-.kick{color:#36b7ff;letter-spacing:.08em}
-.card{background:linear-gradient(145deg,rgba(13,27,44,.94),rgba(7,16,28,.94));border:1px solid #17304a;border-radius:13px;box-shadow:0 8px 30px rgba(0,0,0,.13)}
-.card:hover{transform:translateY(-2px);border-color:#287ab1;box-shadow:0 12px 38px rgba(0,0,0,.2)}
-.btn{border-color:#1d3855;background:#0b1727;border-radius:8px}.btn.p{background:#168ee0;box-shadow:0 5px 20px rgba(30,167,255,.2)}
-.tag{border-color:#24415f;background:rgba(30,167,255,.04)}
-main section .card{border-top:1px solid #17304a}
-#games{grid-area:games}#music{grid-area:music}#projects{grid-area:projects}#tech{grid-area:tech}#about{grid-area:about}
-#games .lib{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-#games .bar{margin-bottom:12px}
-#games .gc{min-width:0}
-#games .cov{aspect-ratio:16/10;border-radius:11px;background:linear-gradient(145deg,#10253a,#07111d);border-color:#1d3c59}
-#games .game-logo{width:68%!important;height:68%!important;inset:16%!important;object-fit:contain!important;padding:0}
-#games .gc:hover .cov{transform:translateY(-3px);border-color:#1ea7ff;box-shadow:0 0 25px rgba(30,167,255,.15)}
-#games .gc h3{font-size:.96rem;margin-top:9px}
-#games .gc .mut{font-size:12px}
-.badge{background:#167fc5;color:#fff}
-.fav{color:#ffd34e}
-#games .gc:focus-visible{outline:2px solid #1ea7ff;outline-offset:3px}
-#music .music-grid{grid-template-columns:1fr;gap:0}
-#music .music-card{display:grid;grid-template-columns:1fr auto;align-items:center;padding:12px 14px;border-radius:0;border-left:0;border-right:0}
-#music .music-card:first-child{border-radius:12px 12px 0 0}#music .music-card:last-child{border-radius:0 0 12px 12px}
-#music .music-card .slot{grid-column:2;grid-row:1 / span 2;margin:0}
-#music .music-frame{width:330px;height:180px}
-#projects .showcase{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-#projects .pj{display:block;border-radius:13px}
-#projects .pjimg{min-height:120px}
-#projects .pjb{padding:15px}
-#projects .pjb ul{display:none}
-#tech .row{display:grid;grid-template-columns:repeat(4,1fr)}
-#tech .row .card{padding:13px!important;text-align:center}
-#about .two{grid-template-columns:1.3fr .8fr}
+nav .links a{color:#91a4ba;border-radius:7px;padding:11px 13px;font-size:14px;text-decoration:none;border-left:2px solid transparent}
+nav .links a:hover,nav .links a.on{color:#fff;background:linear-gradient(90deg,rgba(39,151,232,.16),rgba(39,151,232,.035));border-left-color:var(--blue)}
+#theme{margin-top:auto}#menu{display:none}
+main{max-width:none;margin:0 0 0 222px;padding:0 34px 40px}
+section{padding:30px 0 0}
+.kick{color:var(--blue2);letter-spacing:.1em;font-size:11px;text-transform:uppercase;margin:0 0 5px}
+h2{font-size:1.55rem;margin:0 0 14px;letter-spacing:-.025em}
+.card{background:linear-gradient(145deg,rgba(12,25,40,.96),rgba(5,13,23,.97));border:1px solid var(--line);
+ border-radius:10px;box-shadow:0 10px 34px rgba(0,0,0,.16)}
+.card:hover{border-color:#2c668e;transform:none}
+section .card{border-top:1px solid var(--line)}
+.btn{background:#0a1624;border:1px solid #23425f;border-radius:6px;color:#dcecff}
+.btn.p{background:#0d75bd;border-color:#37aaff;box-shadow:0 0 18px rgba(38,164,255,.16)}
+.tag{background:#0c1a29;border-color:#28465f;border-radius:4px}
+main section{scroll-margin-top:20px}
+
+#home{padding-top:0}
+.hero>.card.idc{margin:0 -34px;min-height:270px;padding:42px 58px;border:0;border-bottom:1px solid #19344c;
+ border-radius:0;background:
+ radial-gradient(circle at 82% 45%,rgba(34,128,196,.25),transparent 28%),
+ linear-gradient(105deg,#091321 0%,#0b1725 48%,#06101a 100%);
+ display:flex;align-items:center;gap:30px;position:relative;overflow:hidden}
+.hero>.card.idc:before{content:"";position:absolute;inset:0;background:
+ linear-gradient(120deg,transparent 0 58%,rgba(40,130,190,.09) 58.1% 58.3%,transparent 58.4%),
+ linear-gradient(90deg,transparent 0 70%,rgba(76,186,255,.05),transparent 88%);pointer-events:none}
+.idc .av{width:148px;height:148px;flex:0 0 148px;border:2px solid #248ed4;box-shadow:0 0 30px var(--glow);object-fit:cover}
+.hero h1{font-size:clamp(2rem,4vw,3rem);margin:0;letter-spacing:-.04em}
+.hero .sub{color:#b0c1d4;margin:5px 0}
+.hero .row{margin-top:13px}
+.hero .tiles{display:none}
+
+#games{grid-column:1}
+#games .bar{margin-bottom:14px}
+#games .lib{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#games .gc{min-width:0;cursor:pointer;position:relative;padding:0 0 12px}
+#games .gc .cov{aspect-ratio:16/10;border-radius:7px;border:1px solid #1d405c;overflow:hidden;
+ background:linear-gradient(145deg,#132a3f,#07101a);position:relative}
+#games .gc .cov:after{content:"";position:absolute;inset:auto 0 0;height:55%;background:linear-gradient(transparent,rgba(2,7,12,.92))}
+#games .gc .game-logo{width:100%!important;height:100%!important;inset:0!important;object-fit:cover!important;opacity:.78}
+#games .gc:first-child .cov{border-color:#1ea8ff;box-shadow:0 0 25px rgba(30,168,255,.14)}
+#games .gc:first-child .cov:before{content:"CURRENT • MAIN GAME";position:absolute;z-index:2;top:8px;left:8px;padding:3px 7px;
+ font-size:9px;letter-spacing:.08em;color:#06111b;background:#54c1ff;border-radius:3px}
+#games .gc h3{position:relative;margin:-31px 9px 0;z-index:3;font-size:14px}
+#games .gc .mut{position:relative;z-index:3;margin:3px 9px 0!important;font-size:11px}
+#games .gc:hover .cov{border-color:#45baff;box-shadow:0 0 28px rgba(40,168,255,.2)}
+#games .bar .chip{border-radius:4px;background:#091523}
+#games .bar .chip[aria-pressed=true]{background:#0c79bd;border-color:#36adff}
+
+#music .music-grid{display:grid;grid-template-columns:1fr;gap:0}
+#music .music-card{border-radius:0!important;border-left:0;border-right:0;border-top:0;display:grid;grid-template-columns:42px 1fr auto;
+ align-items:center;gap:10px;padding:10px 12px}
+#music .music-card:before{content:"♪";width:34px;height:34px;display:grid;place-items:center;border:1px solid #27435d;
+ background:#0b1b2b;border-radius:4px;color:#69c7ff}
+#music .music-card:first-child{border-top:1px solid var(--line);border-radius:8px 8px 0 0!important}
+#music .music-card:last-child{border-radius:0 0 8px 8px!important}
+#music .music-card h3{font-size:13px;margin:0}.music-card .mut{font-size:11px}
+#music .music-card .slot{margin:0}.music-frame{width:330px;height:180px}
+#projects .showcase{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#projects .pj{display:block;border-radius:8px;overflow:hidden}
+#projects .pjimg{min-height:115px;background:#0a1725}
+#projects .pjb{padding:13px}.pjb ul{display:none}
+#tech .row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+#tech .row .card{padding:13px!important;text-align:center;font-size:12px}
 #about .grid{grid-template-columns:repeat(2,1fr)}
-#about .grid .card{padding:14px}
-.game-modal{background:rgba(1,6,12,.78)}
-.game-dialog{background:#081321;border-color:#1c4568;box-shadow:0 25px 100px rgba(0,0,0,.6)}
-.game-dialog .cov{background:#0c1d2f}
-footer{margin-left:220px}
-@media(min-width:821px){main{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.78fr);gap:0 18px;align-items:start}#home{grid-column:1/-1}#about,#interests,#github,#education,#timeline,#contact{grid-column:1/-1}#games{grid-column:1}#music{grid-column:2}#projects{grid-column:1}#tech{grid-column:2}}
-@media(max-width:820px){header{width:100%;height:auto;inset:0 0 auto 0}nav{height:auto;flex-direction:row;align-items:center;padding:10px 12px}.logo{margin-right:auto!important}nav .links{display:none}.links.open{display:flex;position:absolute;top:100%;left:0;right:0;padding:8px 12px;background:#07101d;border-bottom:1px solid #17304a}#menu{display:inline-block;margin-left:4px}main{margin:0;padding:74px 14px 25px}footer{margin:0}#games .lib{grid-template-columns:repeat(2,minmax(0,1fr))}#projects .showcase{grid-template-columns:1fr}#tech .row{grid-template-columns:repeat(2,1fr)}#about .grid{grid-template-columns:1fr}#music .music-card{grid-template-columns:1fr}.music-frame{width:100%!important}}
+footer{margin-left:222px}
+
+.df-feature{position:relative;overflow:hidden;min-height:330px;padding:0!important;border:1px solid #1b4d70!important;
+ background:
+ radial-gradient(circle at 72% 40%,rgba(40,159,224,.2),transparent 28%),
+ linear-gradient(110deg,#08111d,#0c1b2b 52%,#06101a)!important}
+.df-feature .df-bg{position:absolute;inset:0;background:
+ linear-gradient(90deg,rgba(5,12,20,.98) 0%,rgba(5,12,20,.86) 34%,rgba(5,12,20,.2) 70%,rgba(5,12,20,.72) 100%);z-index:1}
+.df-feature .df-content{position:relative;z-index:2;padding:28px 30px;max-width:70%}
+.df-feature .df-title{font-size:clamp(1.7rem,3vw,2.7rem);margin:0 0 3px}
+.df-feature .df-user{color:#4bc0ff;font-size:13px}
+.df-feature .df-level{display:inline-block;margin:7px 0;padding:3px 8px;border:1px solid #2b83b4;color:#56c6ff;font-size:11px;border-radius:3px}
+.df-feature .df-rank{font-size:16px;color:#d7e6f5;margin:5px 0 18px}
+.df-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:15px 0;border-top:1px solid #29445c;border-bottom:1px solid #29445c}
+.df-stat{padding:11px 9px;border-right:1px solid #29445c}.df-stat:last-child{border-right:0}
+.df-stat b{display:block;font-size:21px;color:var(--green)}.df-stat span{font-size:10px;color:#91a5b9}
+.df-tabs{display:flex;border:1px solid #29445c;background:#08131f;margin-top:12px}
+.df-tabs button{flex:1;border:0;border-right:1px solid #29445c;background:transparent;color:#91a6ba;padding:9px;font:inherit;font-size:12px}
+.df-tabs button.active{color:var(--green);box-shadow:inset 0 -2px var(--green)}
+.df-note{font-size:11px;color:#7e94aa;margin-top:12px}
+.df-side{position:absolute;z-index:2;right:24px;top:22px;width:27%;padding:13px;border-left:1px solid #29445c}
+.df-side .label{font-size:9px;color:#7890a7;text-transform:uppercase;letter-spacing:.08em}
+.df-side .value{font-size:15px;margin:3px 0 13px}
+.df-profile-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.df-profile-list .mini{border:1px solid #213b53;background:rgba(7,16,26,.7);padding:10px}
+.df-profile-list b{display:block;font-size:14px}.df-profile-list span{font-size:9px;color:#8298ad}
+
+.game-profile-modal{position:fixed;inset:0;z-index:100;display:none;background:rgba(2,7,12,.9);backdrop-filter:blur(9px);overflow:auto}
+.game-profile-modal.open{display:block}
+.gp-shell{min-height:100vh;background:#070d14;position:relative;overflow:hidden}
+.gp-top{height:58px;border-bottom:1px solid #24394d;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(4,10,17,.88);position:relative;z-index:4}
+.gp-top .brand{font-weight:800;letter-spacing:.06em}.gp-top .brand b{color:#40b7ff}
+.gp-close{font-size:20px;padding:5px 10px}
+.gp-hero{min-height:430px;position:relative;padding:45px 6%;display:flex;align-items:end;overflow:hidden;
+ background:radial-gradient(circle at 70% 35%,rgba(40,146,210,.24),transparent 34%),linear-gradient(120deg,#0a1724,#08111a 65%,#0d2435)}
+.gp-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,8,13,.98) 0%,rgba(3,8,13,.76) 40%,rgba(3,8,13,.18) 75%,rgba(3,8,13,.82) 100%)}
+.gp-main{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.3fr .7fr;gap:30px}
+.gp-name{font-size:clamp(2rem,5vw,4rem);margin:0}.gp-sub{color:#54c4ff}.gp-badge{display:inline-block;border:1px solid #2d759d;padding:4px 8px;color:#65cbff;font-size:11px;margin:9px 0}
+.gp-rank{font-size:18px;margin:8px 0 20px;color:#dbe8f5}
+.gp-sidepanel{align-self:end;border-left:1px solid #345067;padding-left:18px}
+.gp-sidepanel p{margin:0 0 13px}.gp-sidepanel small{display:block;color:#71889d;font-size:9px;text-transform:uppercase}
+.gp-body{padding:20px 6% 40px;background:#080f17}.gp-nav{display:flex;border:1px solid #263d52;margin-bottom:15px}
+.gp-nav button{flex:1;padding:10px;background:#0a1622;border:0;border-right:1px solid #263d52;color:#8ea2b6}.gp-nav button.active{color:#50c6ff;box-shadow:inset 0 -2px #50c6ff}
+.gp-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+.gp-panel{border:1px solid #223a51;background:#0b1520;padding:17px;position:relative}
+.gp-panel h3{font-size:13px;margin:0 0 13px;text-transform:uppercase;letter-spacing:.07em}
+.gp-bigstats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.gp-bigstat{border:1px solid #20394f;padding:12px}.gp-bigstat b{display:block;font-size:20px}.gp-bigstat span{font-size:10px;color:#8196aa}
+.gp-ach{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.gp-ach div{height:54px;border:1px solid #294156;display:grid;place-items:center;color:#c99e48;font-size:18px}
+.gp-recent .match{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #1b2d3e}.gp-recent .match:last-child{border-bottom:0}
+.match .avatar{width:40px;height:40px;background:#16283a;border:1px solid #2a4760;display:grid;place-items:center}.match .name{font-size:12px}.match .mode{font-size:10px;color:#7d92a6}.match .loss{color:#ff5f68;font-size:12px}
+@media(min-width:821px){main{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(310px,.78fr);gap:0 18px;align-items:start}#home{grid-column:1/-1}#about,#interests,#github,#education,#timeline,#contact{grid-column:1/-1}#games{grid-column:1}#music{grid-column:2}#projects{grid-column:1}#tech{grid-column:2}}
+@media(max-width:820px){
+ header{width:100%;height:auto;inset:0 0 auto 0}.links.open{display:flex!important;position:absolute;top:100%;left:0;right:0;padding:8px 12px;background:#07101d;border-bottom:1px solid #18304a}
+ nav{height:auto;flex-direction:row;align-items:center;padding:10px 12px}.logo{margin:0!important}nav .links{display:none}#menu{display:inline-block;margin-left:4px}
+ main{margin:0;padding:72px 12px 25px;display:block}footer{margin:0}
+ .hero>.card.idc{margin:0 -12px;padding:28px 18px;display:flex;align-items:flex-start;gap:15px;min-height:220px}.idc .av{width:92px;height:92px;flex-basis:92px}.hero h1{font-size:1.65rem}.hero .sub{font-size:12px}.hero .row{gap:6px}.hero .btn{font-size:11px;padding:6px 9px}
+ #games .lib{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ #projects .showcase{grid-template-columns:1fr}#tech .row{grid-template-columns:repeat(2,1fr)}#about .grid{grid-template-columns:1fr}
+ #music .music-card{grid-template-columns:34px 1fr auto}.music-frame{width:100%!important;height:180px}
+ .df-feature{min-height:0}.df-feature .df-content{max-width:none;padding:22px 18px}.df-feature .df-side{position:relative;right:auto;top:auto;width:auto;border-left:0;border-top:1px solid #29445c;padding:15px 18px}
+ .df-stats{grid-template-columns:repeat(2,1fr)}.df-stat:nth-child(2){border-right:0}.df-stat:nth-child(-n+2){border-bottom:1px solid #29445c}
+ .gp-hero{min-height:420px;padding:28px 18px}.gp-main{grid-template-columns:1fr;gap:16px}.gp-sidepanel{border-left:0;border-top:1px solid #345067;padding:14px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.gp-sidepanel p{margin:0}.gp-body{padding:16px 18px 30px}.gp-grid{grid-template-columns:1fr}.gp-bigstats{grid-template-columns:repeat(2,1fr)}.gp-ach{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:430px){
+ .hero>.card.idc{display:block}.idc .av{margin-bottom:13px}.hero h1{font-size:1.55rem}.hero .row{flex-wrap:wrap}
+ #games .lib{grid-template-columns:1fr}.gp-name{font-size:2rem}.gp-ach{grid-template-columns:repeat(2,1fr)}
+}
 </style>
 </head>
 <body>
@@ -366,51 +450,164 @@ async function loadGithub() {
 }
 loadGithub();
 
-// Games — personal library
+// Games — profile-oriented library, with Delta Force as the main profile
 const stat = ["Playing","Previously Played","Paused","Completed","Dropped","Want to Play"], plat = ["PC","Mobile","Console"];
-// Ảnh bìa: g.cover nếu có, không thì thumbnail Wikipedia (g.wiki), cache trong localStorage
 const coverCache = (() => { try { return JSON.parse(store.get("covers") || "{}"); } catch { return {}; } })();
-const coverImg = g => { const u = g.cover || coverCache[g.wiki || g.name]; return u ? img(u, "Logo " + g.name, "game-logo") : esc(g.name.slice(0, 2).toUpperCase()); };
+const coverImg = g => {
+  const u = g.cover || coverCache[g.wiki || g.name];
+  return u ? img(u, "Ảnh " + g.name, "game-logo") : "";
+};
 async function loadCovers() {
   await Promise.all(DATA.games.filter(g => !g.cover && !coverCache[g.wiki || g.name]).map(async g => {
     const k = g.wiki || g.name; let u = "";
     try { const res = await fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + encodeURIComponent(k)); if (res.ok) u = (await res.json()).thumbnail?.source || ""; } catch {}
     coverCache[k] = u;
-    if (u) document.querySelectorAll("#games .cov").forEach(c => { if (c.dataset.k === k && !c.querySelector("img")) c.insertAdjacentHTML("afterbegin", img(u, "Ảnh bìa " + g.name, "")); });
+    if (u) document.querySelectorAll("#games .cov").forEach(c => {
+      if (c.dataset.k === k && !c.querySelector("img")) c.insertAdjacentHTML("afterbegin", img(u, "Ảnh " + g.name, "game-logo"));
+    });
   }));
-  store.set("covers", JSON.stringify(Object.fromEntries(Object.entries(coverCache).filter(([, v]) => v))));
+  store.set("covers", JSON.stringify(Object.fromEntries(Object.entries(coverCache).filter(([,v]) => v))));
 }
-const gameCard = (g, i = DATA.games.indexOf(g)) => `<article class="gc" data-game="${i}" tabindex="0" role="button" aria-label="Xem profile ${esc(g.name)}"><div class="cov" data-k="${esc(g.wiki || g.name)}">${coverImg(g)}${g.status ? `<b class="badge">${esc(g.status)}</b>` : ""}${g.favorite ? `<i class="fav" aria-label="Yêu thích">★</i>` : ""}</div>
-  <h3 style="margin-top:8px">${ph(g.name)}</h3><p class="mut" style="margin:0">${[g.platform, g.genre].filter(Boolean).map(esc).join(" · ")}</p></article>`;
-library("games", "Games", DATA.games,
-  { all: ["Favorite", ...stat, ...plat], match: (g, c) => c === "Favorite" ? g.favorite : g.status === c || (g.platform || "").split(/\s*\/\s*/).includes(c) },
-  g => [g.name, g.genre, g.platform, g.status].join(" "), gameCard, "Tìm theo tên, thể loại, nền tảng, trạng thái…", "lib");
-const nowPlaying = DATA.games.filter(g => g.status === "Playing");
-if (nowPlaying.length) $("#games .bar").insertAdjacentHTML("beforebegin", `<h3>Đang chơi</h3><div class="lib" style="margin-bottom:22px">${nowPlaying.map(gameCard).join("")}</div><h3>Thư viện</h3>`);
 
-loadCovers();
+const DF_PROFILE = {
+  name:"Delta Force", player:"LibraNguyen0410", level:"Lv.60",
+  currentRank:"Cao Thủ I", highestRank:"Thách Đấu DF",
+  mode:"Chiến Dịch Sinh Tồn",
+  value:"2.4B", extraction:"43%", kills:"7,462", profit:"1.1M",
+  hours:"214 giờ", matches:"950", assets:"241.7M", extractRate:"47.6%",
+  specialKills:"1519", collection:"52", reputation:"100",
+  note:"Thông tin profile được nhập lại từ ảnh chụp tài khoản Delta Force.",
+  recent:[
+    ["Rover","Chiến Dịch Sinh Tồn | A23 – Thường","-1,243,198","8"],
+    ["Rover","Chiến Dịch Sinh Tồn | A23 – Thường","-1,286,093","3"],
+    ["Rover","Chiến Dịch Sinh Tồn | A23 – Thường","-1,298,776","4"],
+    ["Nox","Chiến Dịch Sinh Tồn | Đập nước Zero – Thường","497,913",""]
+  ]
+};
 
 const gameModal = document.createElement("div");
-gameModal.className = "game-modal";
-gameModal.id = "game-modal";
-gameModal.innerHTML = `<div class="game-dialog" role="dialog" aria-modal="true" aria-labelledby="game-title">
-  <button class="ib game-close" type="button" aria-label="Đóng">✕</button>
-  <div id="game-profile"></div>
+gameModal.className = "game-profile-modal";
+gameModal.id = "game-profile-modal";
+gameModal.innerHTML = `
+<div class="gp-shell">
+  <div class="gp-top"><div class="brand"><b>◢</b> GAME PROFILE / LIBRARY</div><button class="ib gp-close" type="button">✕</button></div>
+  <div id="gp-content"></div>
 </div>`;
 document.body.appendChild(gameModal);
-const openGameProfile = g => {
+
+const genericGameProfile = g => {
   const cover = g.cover || coverCache[g.wiki || g.name] || "";
-  $("#game-profile").innerHTML = `<div class="game-head"><div class="cov">${cover ? img(cover, "Logo " + g.name, "game-logo") : esc(g.name.slice(0,2).toUpperCase())}</div><div><p class="kick">Game profile</p><h2 id="game-title">${esc(g.name)}</h2><div class="game-meta">${[g.status, g.platform, g.genre].filter(Boolean).map(x => `<span class="tag">${esc(x)}</span>`).join("")}${g.favorite ? `<span class="tag">★ Yêu thích</span>` : ""}</div></div></div>
-  ${g.description ? `<p>${esc(g.description)}</p>` : ""}
-  ${[g.playtime && ["Thời gian chơi",g.playtime], g.favoriteCharacter && ["Nhân vật thích",g.favoriteCharacter], g.favoriteMode && ["Mode thích",g.favoriteMode]].filter(Boolean).length ? `<dl>${[g.playtime && ["Thời gian chơi",g.playtime], g.favoriteCharacter && ["Nhân vật thích",g.favoriteCharacter], g.favoriteMode && ["Mode thích",g.favoriteMode]].filter(Boolean).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>` : ""}
-  ${g.link ? `<div class="row">${link(g.link,"Mở link game")}</div>` : ""}
-  <p class="mut">Nhấn ra ngoài hoặc nút ✕ để đóng.</p>`;
-  gameModal.classList.add("open");
+  return `<div class="gp-hero">
+    <div class="gp-main">
+      <div><span class="gp-badge">${esc(g.status || "GAME")}</span><h1 class="gp-name">${esc(g.name)}</h1>
+      <p class="gp-sub">${esc(g.platform || "")} · ${esc(g.genre || "")}</p>
+      <p class="gp-rank">${esc(g.description || "Một game trong thư viện cá nhân.")}</p></div>
+      <div class="gp-sidepanel">${[
+        ["Trạng thái",g.status],["Nền tảng",g.platform],["Thể loại",g.genre],["Yêu thích",g.favorite ? "Có" : "Không"]
+      ].map(([k,v])=>`<p><small>${esc(k)}</small>${esc(v || "—")}</p>`).join("")}</div>
+    </div>
+  </div>
+  <div class="gp-body"><div class="gp-nav"><button class="active">Tổng quan</button><button>Thông tin game</button></div>
+    <div class="gp-panel"><h3>Profile</h3><p class="mut">Thông tin chi tiết cho game này có thể bổ sung sau.</p></div>
+  </div>`;
 };
-$("#games").addEventListener("click", e => { const card = e.target.closest(".gc"); if (!card) return; openGameProfile(DATA.games[Number(card.dataset.game)]); });
-$("#games").addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.closest(".gc")) { e.preventDefault(); openGameProfile(DATA.games[Number(e.target.closest(".gc").dataset.game)]); } });
-gameModal.addEventListener("click", e => { if (e.target === gameModal || e.target.closest(".game-close")) gameModal.classList.remove("open"); });
-document.addEventListener("keydown", e => { if (e.key === "Escape") gameModal.classList.remove("open"); });
+
+const dfProfile = () => `
+<div class="gp-hero">
+  <div class="gp-main">
+    <div>
+      <span class="gp-badge">${esc(DF_PROFILE.level)} · ${esc(DF_PROFILE.player)}</span>
+      <h1 class="gp-name">Delta Force</h1>
+      <p class="gp-sub">${esc(DF_PROFILE.player)}</p>
+      <p class="gp-rank">${esc(DF_PROFILE.currentRank)} · Mức dung lượng cao nhất: ${esc(DF_PROFILE.highestRank)}</p>
+      <div class="df-stats">
+        <div class="df-stat"><b>${DF_PROFILE.value}</b><span>GIÁ TRỊ RÚT QUÂN</span></div>
+        <div class="df-stat"><b>${DF_PROFILE.extraction}</b><span>TỶ LỆ RÚT QUÂN</span></div>
+        <div class="df-stat"><b>${DF_PROFILE.kills}</b><span>HẠ ĐẶC VỤ</span></div>
+        <div class="df-stat"><b>${DF_PROFILE.profit}</b><span>LỜI/LỖ</span></div>
+      </div>
+    </div>
+    <div class="gp-sidepanel">
+      <p><small>Thời gian chơi</small>${DF_PROFILE.hours}</p>
+      <p><small>Tổng số trận</small>${DF_PROFILE.matches}</p>
+      <p><small>Tổng tài sản</small>${DF_PROFILE.assets}</p>
+      <p><small>Tỷ lệ rút quân</small>${DF_PROFILE.extractRate}</p>
+      <p><small>Số đặc vụ tiêu diệt</small>${DF_PROFILE.specialKills}</p>
+      <p><small>Bộ sưu tập</small>${DF_PROFILE.collection}</p>
+    </div>
+  </div>
+</div>
+<div class="gp-body">
+  <div class="gp-nav"><button class="active">Chiến Dịch Sinh Tồn</button><button>Chiến Trường Toàn Diện</button><button>Hồ sơ</button></div>
+  <div class="gp-grid">
+    <div class="gp-panel gp-recent"><h3>Trận đấu gần đây</h3>
+      ${DF_PROFILE.recent.map(x=>`<div class="match"><div class="avatar">◉</div><div><div class="name">${esc(x[0])}</div><div class="mode">${esc(x[1])}</div></div><div class="loss">${esc(x[2])}${x[3] ? " · ☠ "+esc(x[3]) : ""}</div></div>`).join("")}
+    </div>
+    <div>
+      <div class="gp-panel"><h3>Mùa giải hiện tại</h3><div class="gp-bigstats">
+        <div class="gp-bigstat"><b>${DF_PROFILE.highestRank}</b><span>XẾP HẠNG CAO NHẤT</span></div>
+        <div class="gp-bigstat"><b>${DF_PROFILE.matches}</b><span>TỔNG SỐ TRẬN</span></div>
+        <div class="gp-bigstat"><b>${DF_PROFILE.extractRate}</b><span>TỶ LỆ RÚT QUÂN</span></div>
+        <div class="gp-bigstat"><b>${DF_PROFILE.specialKills}</b><span>ĐẶC VỤ TIÊU DIỆT</span></div>
+      </div></div>
+      <div class="gp-panel" style="margin-top:14px"><h3>Huy hiệu thành tích</h3><div class="gp-ach"><div>◆</div><div>◇</div><div>◈</div><div>△</div><div>◊</div><div>✦</div><div>◇</div><div>◆</div></div></div>
+    </div>
+  </div>
+  <p class="df-note">${esc(DF_PROFILE.note)}</p>
+</div>`;
+
+const gameCard = (g, i = DATA.games.indexOf(g)) => `<article class="gc" data-game="${i}" tabindex="0" role="button" aria-label="Xem profile ${esc(g.name)}">
+  <div class="cov" data-k="${esc(g.wiki || g.name)}">${coverImg(g)}${g.favorite ? '<i class="fav" aria-label="Yêu thích">★</i>' : ""}</div>
+  <h3>${ph(g.name)}</h3><p class="mut">${[g.platform,g.genre].filter(Boolean).map(esc).join(" · ")}</p>
+</article>`;
+
+const gameItems = DATA.games.filter(g => g.name !== "Delta Force: Hawk Ops");
+sec("games","Game",`
+  <div class="df-feature card" id="df-feature" role="button" tabindex="0">
+    <div class="df-bg"></div>
+    <div class="df-content">
+      <div class="kick">CURRENT MAIN GAME</div>
+      <h3 class="df-title">Delta Force</h3>
+      <div class="df-user">LibraNguyen0410 · Lv.60</div>
+      <span class="df-level">Cao Thủ I</span>
+      <div class="df-rank">Thách Đấu DF · ${DF_PROFILE.mode}</div>
+      <div class="df-stats">
+        <div class="df-stat"><b>2.4B</b><span>GIÁ TRỊ RÚT QUÂN</span></div>
+        <div class="df-stat"><b>43%</b><span>TỶ LỆ RÚT QUÂN</span></div>
+        <div class="df-stat"><b>7,462</b><span>HẠ ĐẶC VỤ</span></div>
+        <div class="df-stat"><b>1.1M</b><span>LỜI/LỖ</span></div>
+      </div>
+      <div class="df-tabs"><button class="active">Chiến Dịch Sinh Tồn</button><button>Chiến Trường Toàn Diện</button></div>
+      <p class="df-note">Nhấn vào hồ sơ để xem profile chi tiết.</p>
+    </div>
+    <div class="df-side">
+      <div class="label">PROFILE</div>
+      <div class="value">LibraNguyen0410</div>
+      <div class="df-profile-list">
+        <div class="mini"><b>214h</b><span>THỜI GIAN CHƠI</span></div>
+        <div class="mini"><b>950</b><span>TỔNG TRẬN</span></div>
+        <div class="mini"><b>241.7M</b><span>TÀI SẢN</span></div>
+        <div class="mini"><b>52</b><span>SƯU TẬP</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bar" style="margin-top:14px"><span class="mut">Các game khác</span></div>
+  <div class="lib" id="games-g"></div>
+`);
+$("#games-g").innerHTML = gameItems.map(gameCard).join("");
+
+const openGameProfile = g => {
+  $("#gp-content").innerHTML = g.name === "Delta Force: Hawk Ops" || g.name === "Delta Force" ? dfProfile() : genericGameProfile(g);
+  gameModal.classList.add("open");
+  document.body.style.overflow = "hidden";
+};
+$("#df-feature").onclick = () => openGameProfile(DATA.games.find(g => g.name === "Delta Force: Hawk Ops") || {name:"Delta Force: Hawk Ops"});
+$("#df-feature").onkeydown = e => { if(e.key === "Enter" || e.key === " "){e.preventDefault();openGameProfile(DATA.games.find(g => g.name === "Delta Force: Hawk Ops") || {name:"Delta Force"});} };
+$("#games-g").addEventListener("click", e => { const card=e.target.closest(".gc"); if(card) openGameProfile(DATA.games[Number(card.dataset.game)]); });
+$("#games-g").addEventListener("keydown", e => { if((e.key==="Enter"||e.key===" ") && e.target.closest(".gc")){e.preventDefault();openGameProfile(DATA.games[Number(e.target.closest(".gc").dataset.game)]);} });
+gameModal.addEventListener("click", e => { if(e.target===gameModal || e.target.closest(".gp-close")){gameModal.classList.remove("open");document.body.style.overflow="";} });
+document.addEventListener("keydown", e => { if(e.key==="Escape"){gameModal.classList.remove("open");document.body.style.overflow="";} });
+loadCovers();
 
 // Interests + music
 const musicEmbed = m => {
