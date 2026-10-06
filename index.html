@@ -223,7 +223,60 @@ footer{margin-left:222px}
  #games .lib{grid-template-columns:1fr}.gp-name{font-size:2rem}.gp-ach{grid-template-columns:repeat(2,1fr)}
 }
 </style>
-</head>
+<style id="portfolio-layout-final">
+/* Reference-style dashboard layout: small information panels, no oversized DF feature */
+@media(min-width:821px){
+  main{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.78fr);gap:0 18px;align-items:start}
+  #home{grid-column:1/-1}
+  #games{grid-column:1;min-width:0}
+  #music{grid-column:2;min-width:0}
+  #projects{grid-column:1;min-width:0}
+  #tech{grid-column:2;min-width:0}
+}
+#games .lib{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#games .gc{padding:0;overflow:hidden;border:1px solid #203b55;border-radius:9px;background:linear-gradient(145deg,#0b1929,#07101a);transition:.18s}
+#games .gc:hover{border-color:#39adff;box-shadow:0 0 22px rgba(37,164,255,.15);transform:translateY(-2px)}
+#games .gc .cov{aspect-ratio:1.55;border:0;border-radius:0;background:#0a1725}
+#games .gc .cov:after{height:45%;background:linear-gradient(transparent,rgba(4,10,17,.96))}
+#games .gc .game-logo{opacity:.82}
+#games .gc:first-child{border-color:#268ed0;box-shadow:inset 0 0 0 1px rgba(51,175,255,.08)}
+#games .gc:first-child .cov:before{content:"MAIN GAME";top:8px;left:8px}
+#games .gc h3{margin:10px 11px 0;font-size:13px}
+#games .gc .mut{margin:4px 11px 11px!important;font-size:10px;color:#8197ad}
+#games .gc .fav{position:absolute;right:8px;top:8px;z-index:4;color:#ffd45a;font-style:normal}
+#games .game-more{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+#games .game-more .mut{font-size:11px}
+#games .game-more .arrow{color:#62bdff}
+#music{padding-top:30px}
+#music .music-grid{border:1px solid #203b55;border-radius:9px;overflow:hidden;background:linear-gradient(145deg,#0b1726,#07101a)}
+#music .music-card,#music .music-card:first-child,#music .music-card:last-child{border:0;border-bottom:1px solid #1d3042;border-radius:0!important;background:transparent;padding:9px 10px;grid-template-columns:34px 1fr auto;min-height:50px}
+#music .music-card:last-child{border-bottom:0}
+#music .music-card:before{width:30px;height:30px}
+#music .music-card h3{font-size:12px}
+#music .music-card .mut{font-size:9px}
+#projects .showcase{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#projects .pj{border:1px solid #203b55;border-radius:9px}
+#projects .pjimg{min-height:105px}
+#projects .pjb{padding:11px}
+#projects .pjb h3{font-size:13px}
+#tech .row{grid-template-columns:repeat(4,1fr);gap:8px}
+#tech .row .card{padding:11px!important;border-radius:8px}
+#working .card{border-radius:9px}
+.df-feature{min-height:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;display:block!important;overflow:visible!important}
+.df-feature .df-bg,.df-feature .df-content,.df-feature .df-side{display:none!important}
+#df-feature{display:none!important}
+#games .df-inline{display:block}
+#games .df-inline .gc{position:relative}
+#games .df-inline .gc .df-mini{display:block}
+.df-mini{position:absolute;left:9px;bottom:9px;z-index:4;padding:3px 6px;border:1px solid rgba(65,190,255,.55);border-radius:3px;background:rgba(4,13,22,.82);font-size:9px;color:#65c8ff}
+@media(max-width:820px){
+  main{display:block}
+  #games .lib{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #projects .showcase{grid-template-columns:1fr}
+  #tech .row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:430px){#games .lib{grid-template-columns:1fr}}
+</style></head>
 <body>
 <header><nav aria-label="Main"><a class="logo" href="#home" id="logo"></a><div class="links" id="links"></div>
 <button class="ib" id="theme" aria-label="Đổi giao diện sáng/tối">◐</button><button class="ib" id="menu" aria-label="Mở menu" aria-expanded="false">☰</button></nav></header>
@@ -561,51 +614,65 @@ const gameCard = (g, i = DATA.games.indexOf(g)) => `<article class="gc" data-gam
   <h3>${ph(g.name)}</h3><p class="mut">${[g.platform,g.genre].filter(Boolean).map(esc).join(" · ")}</p>
 </article>`;
 
-const gameItems = DATA.games.filter(g => g.name !== "Delta Force: Hawk Ops");
+const gameItems = DATA.games;
 sec("games","Game",`
-  <div class="df-feature card" id="df-feature" role="button" tabindex="0">
-    <div class="df-bg"></div>
-    <div class="df-content">
-      <div class="kick">CURRENT MAIN GAME</div>
-      <h3 class="df-title">Delta Force</h3>
-      <div class="df-user">LibraNguyen0410 · Lv.60</div>
-      <span class="df-level">Cao Thủ I</span>
-      <div class="df-rank">Thách Đấu DF · ${DF_PROFILE.mode}</div>
-      <div class="df-stats">
-        <div class="df-stat"><b>2.4B</b><span>GIÁ TRỊ RÚT QUÂN</span></div>
-        <div class="df-stat"><b>43%</b><span>TỶ LỆ RÚT QUÂN</span></div>
-        <div class="df-stat"><b>7,462</b><span>HẠ ĐẶC VỤ</span></div>
-        <div class="df-stat"><b>1.1M</b><span>LỜI/LỖ</span></div>
-      </div>
-      <div class="df-tabs"><button class="active">Chiến Dịch Sinh Tồn</button><button>Chiến Trường Toàn Diện</button></div>
-      <p class="df-note">Nhấn vào hồ sơ để xem profile chi tiết.</p>
-    </div>
-    <div class="df-side">
-      <div class="label">PROFILE</div>
-      <div class="value">LibraNguyen0410</div>
-      <div class="df-profile-list">
-        <div class="mini"><b>214h</b><span>THỜI GIAN CHƠI</span></div>
-        <div class="mini"><b>950</b><span>TỔNG TRẬN</span></div>
-        <div class="mini"><b>241.7M</b><span>TÀI SẢN</span></div>
-        <div class="mini"><b>52</b><span>SƯU TẬP</span></div>
-      </div>
-    </div>
+  <div class="game-more">
+    <span class="mut">Game đang chơi và một số game từng chơi</span>
+    <span class="arrow">Nhấn vào game để xem profile →</span>
   </div>
-  <div class="bar" style="margin-top:14px"><span class="mut">Các game khác</span></div>
   <div class="lib" id="games-g"></div>
 `);
-$("#games-g").innerHTML = gameItems.map(gameCard).join("");
+$("#games-g").innerHTML = gameItems.map((g,i) => {
+  const card = gameCard(g,i);
+  if (g.name === "Delta Force: Hawk Ops") return card.replace("</article>", '<span class="df-mini">Lv.60 · Thách Đấu DF</span></article>');
+  return card;
+}).join("");
 
 const openGameProfile = g => {
-  $("#gp-content").innerHTML = g.name === "Delta Force: Hawk Ops" || g.name === "Delta Force" ? dfProfile() : genericGameProfile(g);
+  $("#gp-content").innerHTML = g.name === "Delta Force: Hawk Ops" || g.name === "Delta Force" ? `
+    <div class="gp-hero">
+      <div class="gp-main">
+        <div>
+          <span class="gp-badge">ĐANG CHƠI · ${esc(DF_PROFILE.level)}</span>
+          <h1 class="gp-name">Delta Force</h1>
+          <p class="gp-sub">${esc(DF_PROFILE.player)}</p>
+          <p class="gp-rank">${esc(DF_PROFILE.currentRank)} · ${esc(DF_PROFILE.mode)}</p>
+        </div>
+        <div class="gp-sidepanel">
+          <p><small>Hạng cao nhất</small>${esc(DF_PROFILE.highestRank)}</p>
+          <p><small>Thời gian chơi</small>${esc(DF_PROFILE.hours)}</p>
+          <p><small>Tổng số trận</small>${esc(DF_PROFILE.matches)}</p>
+          <p><small>Tỷ lệ rút quân</small>${esc(DF_PROFILE.extractRate)}</p>
+        </div>
+      </div>
+    </div>
+    <div class="gp-body">
+      <div class="gp-nav"><button class="active">Tóm tắt</button></div>
+      <div class="gp-panel">
+        <h3>Thông tin nổi bật</h3>
+        <div class="gp-bigstats">
+          <div class="gp-bigstat"><b>${DF_PROFILE.value}</b><span>GIÁ TRỊ RÚT QUÂN</span></div>
+          <div class="gp-bigstat"><b>${DF_PROFILE.extraction}</b><span>TỶ LỆ RÚT QUÂN</span></div>
+          <div class="gp-bigstat"><b>${DF_PROFILE.kills}</b><span>HẠ ĐẶC VỤ</span></div>
+          <div class="gp-bigstat"><b>${DF_PROFILE.profit}</b><span>LỜI/LỖ</span></div>
+        </div>
+        <p class="df-note">${esc(DF_PROFILE.note)}</p>
+      </div>
+    </div>` : genericGameProfile(g);
   gameModal.classList.add("open");
   document.body.style.overflow = "hidden";
 };
-$("#df-feature").onclick = () => openGameProfile(DATA.games.find(g => g.name === "Delta Force: Hawk Ops") || {name:"Delta Force: Hawk Ops"});
-$("#df-feature").onkeydown = e => { if(e.key === "Enter" || e.key === " "){e.preventDefault();openGameProfile(DATA.games.find(g => g.name === "Delta Force: Hawk Ops") || {name:"Delta Force"});} };
-$("#games-g").addEventListener("click", e => { const card=e.target.closest(".gc"); if(card) openGameProfile(DATA.games[Number(card.dataset.game)]); });
-$("#games-g").addEventListener("keydown", e => { if((e.key==="Enter"||e.key===" ") && e.target.closest(".gc")){e.preventDefault();openGameProfile(DATA.games[Number(e.target.closest(".gc").dataset.game)]);} });
-gameModal.addEventListener("click", e => { if(e.target===gameModal || e.target.closest(".gp-close")){gameModal.classList.remove("open");document.body.style.overflow="";} });
+
+$("#games-g").addEventListener("click", e => {
+  const card=e.target.closest(".gc"); if(card) openGameProfile(DATA.games[Number(card.dataset.game)]);
+});
+$("#games-g").addEventListener("keydown", e => {
+  const card=e.target.closest(".gc");
+  if(card && (e.key==="Enter"||e.key===" ")){e.preventDefault();openGameProfile(DATA.games[Number(card.dataset.game)]);}
+});
+gameModal.addEventListener("click", e => {
+  if(e.target===gameModal || e.target.closest(".gp-close")){gameModal.classList.remove("open");document.body.style.overflow="";}
+});
 document.addEventListener("keydown", e => { if(e.key==="Escape"){gameModal.classList.remove("open");document.body.style.overflow="";} });
 loadCovers();
 
