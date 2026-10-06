@@ -1,307 +1,359 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPP Online - Văn Phòng Phẩm Chất Lượng</title>
-    <link rel="icon" href="images/logo.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="style/home.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bùi Thiết Nguyên — Computer Science Student & Developer</title>
+<meta name="description" content="Personal portfolio of Bùi Thiết Nguyên, IT student.">
+<meta property="og:title" content="Bùi Thiết Nguyên — Computer Science Student & Developer">
+<meta property="og:description" content="Personal portfolio: projects, games, interests, timeline.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+<style>
+:root{--bg:#0b0f17;--card:rgba(255,255,255,.05);--bd:rgba(255,255,255,.1);--tx:#e6e9ef;--mut:#9aa4b5;--ac:#6ea8ff;--ac2:#a78bfa;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fb;--card:rgba(255,255,255,.75);--bd:rgba(0,0,0,.1);--tx:#161a23;--mut:#586277;--ac:#2563eb;--ac2:#7c3aed}}
+:root[data-theme="light"]{--bg:#f5f7fb;--card:rgba(255,255,255,.75);--bd:rgba(0,0,0,.1);--tx:#161a23;--mut:#586277;--ac:#2563eb;--ac2:#7c3aed}
+:root[data-theme="dark"]{--bg:#0b0f17;--card:rgba(255,255,255,.05);--bd:rgba(255,255,255,.1);--tx:#e6e9ef;--mut:#9aa4b5;--ac:#6ea8ff;--ac2:#a78bfa}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background-image:radial-gradient(700px 400px at 10% -5%,color-mix(in srgb,var(--ac) 18%,transparent),transparent),radial-gradient(600px 400px at 100% 10%,color-mix(in srgb,var(--ac2) 15%,transparent),transparent);background-attachment:fixed;overflow-x:hidden}
+a{color:var(--ac)}img{max-width:100%}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+header{position:fixed;top:0;left:0;right:0;z-index:10;padding-top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)}
+nav{max-width:1000px;margin:auto;display:flex;align-items:center;gap:4px;padding:10px 16px}
+nav .logo{font-weight:700;margin-right:auto;color:var(--tx);text-decoration:none}
+nav .links{display:flex;gap:2px}
+nav .links a{padding:6px 10px;border-radius:8px;color:var(--mut);text-decoration:none;font-size:14px}
+nav .links a:hover,nav .links a.on{color:var(--tx);background:var(--card)}
+button,.btn{font:inherit;cursor:pointer}
+.ib{background:var(--card);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:6px 10px;min-height:36px}
+#menu{display:none}
+@media(max-width:1000px){#menu{display:inline-block}nav .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:8px 16px;border-bottom:1px solid var(--bd)}nav .links.open{display:flex}nav .links a{padding:12px 10px}}
+main{max-width:1000px;margin:auto;padding:0 16px}
+section{padding:72px 0 8px}
+h2{font-size:1.6rem;margin:0 0 16px}.kick{margin:0 0 4px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sa,var(--ac))}
+#about{--sa:#f5a524}#interests{--sa:#ec6fa5}#games{--sa:#34d399}#projects,#github{--sa:#6ea8ff}#tech{--sa:#a78bfa}#education{--sa:#f59e0b}#timeline{--sa:#22d3ee}
+h3{margin:0 0 4px;font-size:1.05rem}
+.hero{padding-top:110px;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.av{width:128px;height:128px;border-radius:50%;border:2px solid var(--bd);object-fit:cover;display:grid;place-items:center;font-size:42px;background:var(--card)}
+.hero h1{margin:0;font-size:clamp(1.8rem,6vw,2.8rem);line-height:1.15}
+.sub{color:var(--mut);margin:6px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;backdrop-filter:blur(8px);min-width:0;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-2px);border-color:var(--ac)}
+.card img.cv{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;margin-bottom:8px}
+.tag{display:inline-block;font-size:12px;padding:2px 8px;border:1px solid var(--bd);border-radius:99px;color:var(--mut);margin:2px 4px 2px 0}
+.mut{color:var(--mut);font-size:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn{display:inline-block;padding:7px 14px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--tx);text-decoration:none;font-size:14px}
+.btn.p{background:var(--ac);color:#fff;border-color:transparent}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.chip{padding:5px 12px;border-radius:99px;border:1px solid var(--bd);background:transparent;color:var(--mut);font-size:14px}
+.chip[aria-pressed=true]{background:var(--ac);color:#fff;border-color:transparent}
+input[type=search]{flex:1 1 160px;min-width:0;padding:8px 12px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit}
+.tl{border-left:2px solid var(--bd);margin-left:6px;padding-left:18px}
+.tl .card{margin-bottom:12px;position:relative}.tl .card:before{content:"";position:absolute;left:-25px;top:20px;width:10px;height:10px;border-radius:50%;background:var(--ac)}
+details.card summary{cursor:pointer;font-weight:600}
+.ph{color:var(--mut);font-style:italic}
+.state{padding:14px;border:1px dashed var(--bd);border-radius:10px;color:var(--mut);margin-bottom:14px}
+footer{text-align:center;color:var(--mut);padding:40px 16px;font-size:14px}
+section .card{border-top:2px solid var(--sa,var(--bd))}.card:hover{border-color:var(--sa,var(--ac))}.chip[aria-pressed=true]{background:var(--sa,var(--ac))}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;align-items:stretch}.idc{display:flex;gap:20px;align-items:center;flex-wrap:wrap;padding:24px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tile{display:flex;flex-direction:column;justify-content:center}.tile strong{overflow-wrap:anywhere}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:start}.story p{margin:0 0 12px}.story p:last-child{margin:0}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px}dt{color:var(--mut)}dd{margin:0;overflow-wrap:anywhere}
+.mosaic{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}.big{font-size:2.2rem;line-height:1}
+.lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}.gc{min-width:0}
+.cov{position:relative;aspect-ratio:2/3;border-radius:12px;overflow:hidden;border:1px solid var(--bd);background:linear-gradient(160deg,color-mix(in srgb,var(--sa) 35%,var(--bg)),var(--bg));display:grid;place-items:center;font-size:2rem;font-weight:700;color:var(--mut);transition:transform .15s}
+.gc:hover .cov{transform:translateY(-3px)}.cov img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:8px;bottom:8px;font-size:11px;padding:2px 8px;border-radius:99px;background:var(--sa);color:#04130c}.fav{position:absolute;right:8px;top:8px;font-style:normal;color:#fbbf24}
+.showcase{display:grid;gap:18px}.pj{display:grid;grid-template-columns:1fr 1.2fr;border:1px solid var(--bd);border-radius:16px;overflow:hidden;background:var(--card)}
+.pjimg{min-height:200px;position:relative;background:linear-gradient(135deg,color-mix(in srgb,var(--sa) 40%,var(--bg)),var(--bg));display:grid;place-items:center;font-size:3rem;font-weight:700;color:var(--mut)}
+.pjimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.pjb{padding:18px;min-width:0}.pjb ul{margin:4px 0 8px;padding-left:18px}.pj:nth-child(even) .pjimg{order:2}
+.tl .card:before{background:var(--c,var(--ac))}.refl{font-style:italic;border-left:2px solid var(--c);padding-left:10px}
+@media(max-width:820px){.hero,.two,.pj{grid-template-columns:1fr}.pj:nth-child(even) .pjimg{order:0}}
+.music-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}.music-card{overflow:hidden}.music-frame{display:block;width:100%;height:190px;border:0;border-radius:10px;margin-top:12px;background:#000}.music-spotify{height:152px}@media(max-width:820px){.music-frame{height:180px}}
+#music{--sa:#fb7185}.slot{min-height:40px;margin-top:12px}.slot .music-frame{margin-top:0}
+</style>
 </head>
 <body>
-    <div id="page">
-        <header id="header">
-            <div class="top-bar">
-                <a href="index.html" class="logo">
-                    <img src="images/logo.png" alt="VPP Online Logo">
-                </a>
-                <div class="search-container">
-                    <input type="text" id="search" placeholder="Tìm kiếm sản phẩm...">
-                    <button class="search-btn">
-                        <i class="fas fa-search">	&#128269;</i>
-                    </button>
-                </div>
+<header><nav aria-label="Main"><a class="logo" href="#home" id="logo"></a><div class="links" id="links"></div>
+<button class="ib" id="theme" aria-label="Đổi giao diện sáng/tối">◐</button><button class="ib" id="menu" aria-label="Mở menu" aria-expanded="false">☰</button></nav></header>
+<main>
+<section id="home" class="hero"></section>
+<section id="about"></section>
+<section id="interests"></section>
+<section id="music"></section>
+<section id="games"></section>
+<section id="projects"></section>
+<section id="github"></section>
+<section id="tech"></section>
+<section id="education"></section>
+<section id="timeline"></section>
+<section id="contact"></section>
+</main>
+<footer id="foot"></footer>
+<script>
+/* ============ DATA — chỉ sửa phần này. Trường rỗng ("" hoặc []) sẽ tự ẩn. ============ */
+const DATA = {
+  github: { username: "trTre2", maxRepos: 6, cacheMinutes: 30 },
+  profile: {
+    name: "Bùi Thiết Nguyên", major: "Khoa học máy tính", university: "Trường Đại học Hạ Long", className: "K9.KM9",
+    tagline: "Học Khoa học máy tính, làm project, chơi game và nghe nhạc — phần còn lại thì để lúc có hứng tính tiếp.", avatar: "", location: "Hạ Long", status: "Sinh viên Khoa học máy tính",
+    bio: "Mình học Khoa học máy tính ở Hạ Long. Trang này là chỗ gom những thứ mình đang học, đã làm, đang chơi và đang nghe — không phải một bản CV thu gọn.",
+    story: [
+      "Mình vào Đại học Hạ Long từ năm 2023 và đang học Khoa học máy tính. Phần lớn thời gian ở trường xoay quanh code, đồ án, báo cáo và những thứ phải tự mày mò mới chạy được.",
+      "Mình từng làm các project desktop, web và những bài tập/đề tài liên quan đến AI. Có những project chủ yếu để hoàn thành học phần, có những thứ làm vì tò mò. Mình thích giữ lại cả quá trình hơn là chỉ khoe sản phẩm cuối cùng.",
+      "Ngoài máy tính, mình chơi game, nghe nhạc Việt và nhạc Hoa, để ý tiếng Trung, Hán Việt và văn hóa mạng. Vì thế phần game và nhạc trên trang này cũng quan trọng không kém phần code."
+    ],
+    quickFacts: [
+      { q: "Đang nghe", a: "Nhạc Việt, nhạc Hoa" },
+      { q: "Đang chơi", a: "Delta Force: Hawk Ops" },
+      { q: "Đang tìm hiểu", a: "Tiếng Trung, Hán Việt, API LLM" }
+    ],
+    workingStyle: [
+      { label: "Cách học", text: "Thường học theo project hoặc thứ đang cần dùng; hiểu đến đâu dùng đến đó." },
+      { label: "Cách làm project", text: "Tách lớp rõ ràng (GUI / BLL / DAL) và làm tài liệu đúng quy chuẩn của trường." },
+      { label: "Cách dùng AI", text: "Dùng AI để soạn thảo và sinh code, nhưng đọc lại, sửa có chủ đích thay vì nhận nguyên, và giữ nguyên văn bản gốc khi cần." },
+      { label: "Đang cải thiện", text: "Làm project gọn hơn, bớt vòng vo và hiểu kỹ hơn những thứ mình dùng." }
+    ],
+  },
+  socialLinks: [ // url rỗng = không hiển thị
+    { label: "GitHub", url: "https://github.com/trTre2" }, { label: "Facebook", url: "https://www.facebook.com/share/1C97kV9qdM/" }, { label: "LinkedIn", url: "" },
+    { label: "Email", url: "" /* ví dụ: "mailto:you@example.com" */ }, { label: "Website", url: "https://nguynbii0410.id.vn" }, { label: "Discord", url: "" }
+  ],
+  skills: [],
 
-                <div class="user-actions">
-                    <div  class="cart-btn" onclick="toggleCartDetails()">
-                        <a class="fas fa-shopping-cart">&#128722;</a>
-                        <span class="cart-count" id="cart-count">0</span>
-                        <div id="cart-details">
-                            <h4>Giỏ hàng</h4>
-                            <ul id="cart-items"></ul>
-                            <a id="checkout" href="../module/checkout.html">Thanh toán</a>
-                        </div>
-                    </div>
-                    <div class="auth-links">
-                        <a href="module/login/login.html" class="login">Đăng nhập</a>
-                        <span>/</span>
-                        <a href="module/login/signup.html" class="register">Đăng ký</a>
-                    </div>
-                </div>
-            </div>
+  projectSettings: {
+    hiddenProjects: [],
+    featuredProjects: [],
+    content: {
+      "QuanLyNhanVien": {
+        description: "Đồ án desktop quản lý nhân viên làm cho học phần.",
+        built: ["C# WinForms", "Kiến trúc GUI / BLL / DAL", "SQL Server", "Tạo bảng lương hàng loạt và tìm kiếm nhân viên"],
+        technologies: ["C#", "WinForms", "SQL Server"],
+        categories: ["Desktop", "Academic"]
+      },
+      "nguynbii0410.github.io": {
+        description: "VPP Online dạng website tĩnh, tập trung vào giao diện bán văn phòng phẩm và các thao tác phía trình duyệt.",
+        built: ["Danh mục Giấy / Bút / Khác", "Tìm kiếm sản phẩm", "Giỏ hàng", "Đăng nhập / đăng ký", "Thanh toán", "Chọn sản phẩm bằng localStorage"],
+        technologies: ["HTML", "CSS", "JavaScript"],
+        categories: ["Web", "Academic"]
+      },
+      "vppfinal1": {
+        description: "VPP Online phiên bản có backend, quản lý sản phẩm, người dùng, giỏ hàng và đơn hàng.",
+        built: ["ASP.NET Web Forms", "Xử lý đăng nhập bằng Session", "Giỏ hàng và thêm sản phẩm", "Tìm kiếm sản phẩm", "Quản trị banner/quảng cáo", "Truy cập SQL Server bằng SqlConnection"],
+        technologies: ["C#", "ASP.NET Web Forms", "SQL Server"],
+        categories: ["Web", "Academic"]
+      },
+      "NCKH: ảnh hưởng của AI đến việc học của sinh viên CNTT": {
+        description: "Đề tài nghiên cứu về cách sinh viên CNTT sử dụng AI trong học tập.",
+        built: ["Thiết kế khảo sát", "Xử lý dữ liệu Likert", "Phân tích kết quả và đề xuất"],
+        technologies: ["Python", "Data Analysis"],
+        categories: ["AI", "Academic"]
+      }
+    }
+  },
 
-            <nav class="main-menu">
-                <a href="index.html">Trang chủ</a>
-                <li class="has-submenu">
-                    <a href="#">Sản phẩm</a>
-                    <ul class="submenu">
-                        <li><a href="#" onclick="redirectToCategory('giay')">Giấy</a></li>
-                        <li><a href="#" onclick="redirectToCategory('but')">Bút</a></li>
-                        <li><a href="#" onclick="redirectToCategory('khac')">Khác</a></li>
-                    </ul>
-                </li>
-                <a href="#">Khuyến mãi</a>
-                <a href="#">Hướng dẫn</a>
-                <a href="module/checkout.html">Thanh toán</a>
-                <a href="module/about.html">Về chúng tôi</a>
-            </nav>
-        </header>
+  fallbackRepos: [ // hiển thị khi GitHub API lỗi
+    // { name:"", description:"", language:"", stars:0, forks:0, updated:"2025-01-01", url:"", homepage:"" }
+  ],
+  games: [ // status: Playing | Previously Played | Paused | Completed | Dropped | Want to Play. wiki = tên bài Wikipedia để tự lấy ảnh bìa; điền cover = URL ảnh để ghi đè
+    { name: "Delta Force: Hawk Ops", wiki: "Delta Force: Hawk Ops", cover: "", platform: "PC / Mobile", genre: "FPS / Tactical Shooter", status: "Playing", favorite: true, description: "Game mình đang chơi hiện tại.", link: "" },
+    { name: "Mindustry", wiki: "Mindustry", cover: "", platform: "PC / Mobile", genre: "Automation / Strategy", status: "Previously Played", favorite: true, description: "Chơi cả bản có mod.", link: "" },
+    { name: "Liên Quân Mobile", wiki: "Arena of Valor", cover: "", platform: "Mobile", genre: "MOBA", status: "Previously Played", favorite: false, description: "", link: "" },
+    { name: "Genshin Impact", wiki: "Genshin Impact", cover: "", platform: "PC / Mobile", genre: "Action RPG", status: "Previously Played", favorite: false, description: "", link: "" },
+    { name: "Arknights: Endfield", wiki: "Arknights: Endfield", cover: "", platform: "PC / Mobile", genre: "Action RPG / Strategy", status: "Previously Played", favorite: false, description: "", link: "" },
+    { name: "Punishing: Gray Raven", wiki: "Punishing: Gray Raven", cover: "", platform: "PC / Mobile", genre: "Action RPG", status: "Previously Played", favorite: false, description: "", link: "" }
+  ],
 
-        <main class="container">
-            <section class="banner">
-                <img src="images/banner.png" alt="Khuyến mãi đặc biệt">
-            </section>
+  interests: [
+    { name: "Âm nhạc", description: "Nghe nhạc Việt và nhạc Hoa.", icon: "", why: "", since: "", favorites: ["Kẻ Theo Đuổi Ánh Sáng — Huy Vạc"], relatedLinks: [] },
+    { name: "Game", description: "Chơi game bắn súng như Delta Force: Hawk Ops và các game extraction shooter, cùng Mindustry có mod.", icon: "", why: "", since: "", favorites: ["Delta Force: Hawk Ops", "Mindustry"], relatedLinks: [] },
+    { name: "Ngôn ngữ và văn hóa mạng", description: "Quan tâm văn hóa game/meme mạng Trung Quốc và từ Hán Việt; từng làm thẻ meme dịch câu đối châm biếm Việt–Trung, chỉnh vần.", icon: "", why: "", since: "", favorites: ["Hán Việt", "Meme game"], relatedLinks: [] },
+    { name: "AI và LLM", description: "Viết báo cáo NCKH về ảnh hưởng của AI đến sinh viên CNTT, và tìm hiểu tích hợp API LLM.", icon: "", why: "", since: "", favorites: [], relatedLinks: [] }
+  ],
+  music: [
+    { title: "24H", artist: "LyLy", type: "youtube", id: "icUsMbLkj7Y", note: "Moving On version" },
+    { title: "Forget Me Now", artist: "Fishy · Trí Dũng", type: "youtube", id: "W1HFe9gKU7I", note: "" },
+    { title: "Kỳ Vọng Sai Lầm", artist: "Tăng Phúc · Nguyễn Đình Vũ · Yuno Bigboi", type: "youtube", id: "1v2YWTZb1Js", note: "" },
+    { title: "Không biết phải nói gì không biết phải làm sao", artist: "Vương Bình · Lâm Bảo Ngọc", type: "spotify", id: "0nsL4PygHATxNEodCdXCVE", note: "" },
+    { title: "Vương", artist: "JokeS Bii · Trang Anh", type: "external", url: "https://music.apple.com/gb/song/1736205030", note: "" },
+    { title: "Kẻ Theo Đuổi Ánh Sáng", artist: "Huy Vạc", type: "search", url: "https://www.youtube.com/results?search_query=Kẻ+Theo+Đuổi+Ánh+Sáng+Huy+Vạc", note: "" }
+  ],
 
-            <section class="featured-products">
-                <h2>Sản phẩm nổi bật</h2>
-                <div id="noibat">
-                    <div class="scrolling-content">
-                      <div class="sanpham">
-                        <span class="product-item" onclick="selectProduct(1)">
-                            <img src="images/but/thien_long_tl27.png" alt="Bút bi Thiên Long">
-                            <h3>Bút bi Thiên Long TL-027</h3>
-                            <p class="price">3.800đ</p>
-                            <button class="add-to-cart" onclick="addToCartById(1,event)">Thêm vào giỏ</button>
-                        </span>
-                        <span class="product-item" onclick="selectProduct(2)">
-                            <img src="images/giay/giay_quality_a4_70gsm.jpg" alt="Thùng giấy A4">
-                            <h3>Thùng giấy quality A4 70</h3>
-                            <p class="price">330.000đ</p>
-                            <button class="add-to-cart" onclick="addToCartById(2,event)">Thêm vào giỏ</button>
-                        </span>
-                        <span class="product-item" onclick="selectProduct(13)">
-                            <img src="images/giay/giay1.png" alt="Giấy in A3 80gsm Double A">
-                            <h3>Giấy in A3 80gsm Double A</h3>
-                            <p class="price">179.000đ</p>
-                            <button class="add-to-cart" onclick="addToCartById(13,event)">Thêm vào giỏ</button>
-                        </span>
-                        <span class="product-item" onclick="selectProduct(8)">
-                            <img src="images/but/butnuoc.png" alt="Bút my gel Dong A 0.5mm">
-                            <h3>Bút my gel Dong A 0.5mm </h3>
-                            <p class="price">8.500đ</p>
-                            <button class="add-to-cart" onclick="addToCartById(8,event)">Thêm vào giỏ</button>
-                        </span>
-                        <span class="product-item" onclick="selectProduct(5)">
-                            <img src="images/but/butchi1.png" alt="Bút chì chuốt Steadler 134">
-                            <h3>Bút chì chuốt Steadler 134</h3>
-                            <p class="price">2.900đ</p>
-                            <button class="add-to-cart" onclick="addToCartById(5,event)">Thêm vào giỏ</button>
-                        </span>
-                      </div>
-                      <div class="sanpham">
-                        <span class="product-item" onclick="selectProduct(1)">
-                            <img src="images/but/thien_long_tl27.png" alt="Bút bi Thiên Long">
-                            <h3>Bút bi Thiên Long TL-027</h3>
-                            <p class="price">3.800đ</p>
-                            <button class="add-to-cart" onclick="addToCartById(1,event)">Thêm vào giỏ</button>
-                        </span>
-                        <span class="product-item" onclick="selectProduct(2)">
-                            <img src="images/giay/giay_quality_a4_70gsm.jpg" alt="Thùng giấy A4">
-                            <h3>Thùng giấy quality A4 70</h3>
-                            <p class="price">330.000đ</p>
-                            <button class="add-to-cart" onclick="addToCartById(2,event)">Thêm vào giỏ</button>
-                        </span>
-                        <span class="product-item" onclick="selectProduct(13)">
-                            <img src="images/giay/giay1.png" alt="Giấy in A3 80gsm Double A">
-                            <h3>Giấy in A3 80gsm Double A</h3>
-                            <p class="price">179.000đ</p>
-                            <button class="add-to-cart" onclick="addToCartById(13,event)">Thêm vào giỏ</button>
-                        </span>
-                        <span class="product-item" onclick="selectProduct(8)">
-                            <img src="images/but/butnuoc.png" alt="Bút my gel Dong A 0.5mm">
-                            <h3>Bút my gel Dong A 0.5mm </h3>
-                            <p class="price">8.500đ</p>
-                            <button class="add-to-cart" onclick="addToCartById(8,event)">Thêm vào giỏ</button>
-                        </span>
-                        <span class="product-item" onclick="selectProduct(5)">
-                            <img src="images/but/butchi1.png" alt="Bút chì chuốt Steadler 134">
-                            <h3>Bút chì chuốt Steadler 134</h3>
-                            <p class="price">2.900đ</p>
-                            <button class="add-to-cart" onclick="addToCartById(5,event)">Thêm vào giỏ</button>
-                        </span>
-                      </div>
-                    </div>
-                </div>
-            </section>
-            <section class="new-products">
-                <h2>Tất cả sản phẩm</h2>
-            
-                <div class="head-title" onclick="redirectToCategory('but')">
-                    <h3 class="section-title">Bút</h3>
-                </div>
-                <div class="product-grid">
-                    <div class="product-item" onclick="selectProduct(3)">
-                        <img src="images/but/butchi.png" alt="Sản phẩm">
-                        <h4>Bút chì Centa 2B</h4>
-                        <p class="price">2.500đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(3,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(5)">
-                        <img src="images/but/butchi1.png" alt="Sản phẩm">
-                        <h4>Bút chì chuốt Steadler 134</h4>
-                        <p class="price">2.900đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(5,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(8)">
-                        <img src="images/but/butnuoc.png" alt="Sản phẩm">
-                        <h4>Bút my gel Dong A 0.5mm</h4>
-                        <p class="price">8.500đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(8,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(9)">
-                        <img src="images/but/butnuoc1.png" alt="Sản phẩm">
-                        <h4>Bút Gel Thiên Long GEL-08</h4>
-                        <p class="price">7.000đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(9,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(10)">
-                        <img src="images/but/butnuoc2.png" alt="Sản phẩm">
-                        <h4>Bút Mực Gel Double-A 0.5mm</h4>
-                        <p class="price">16.000đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(10,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(11)">
-                        <img src="images/but/butnuoc3.png" alt="Sản phẩm">
-                        <h4>Bút Gel B-01 B.Master</h4>
-                        <p class="price">8.500đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(11,event)">Thêm vào giỏ</button>
-                    </div>
-                </div>
-            
-                <div class="head-title" onclick="redirectToCategory('giay')">
-                    <h3 class="section-title">Giấy</h3>
-                </div>
-                <div class="product-grid">
-                    <div class="product-item" onclick="selectProduct(12)">
-                        <img src="images/giay/giay1.png" alt="Sản phẩm">
-                        <h4>Giấy in A3 80gsm Double A</h4>
-                        <p class="price">179.000đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(12,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(13)">
-                        <img src="images/giay/giay2.png" alt="Sản phẩm">
-                        <h4>Giấy in A3 70gsm Double A</h4>
-                        <p class="price">154.000đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(13,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(14)">
-                        <img src="images/giay/giay3.png" alt="Sản phẩm">
-                        <h4>Giấy in A5 70gsm Double A</h4>
-                        <p class="price">39.000đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(14,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(15)">
-                        <img src="images/giay/giay4.png" alt="Sản phẩm">
-                        <h4>Giấy in A4 70gsm Double A</h4>
-                        <p class="price">77.000đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(15,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(16)">
-                        <img src="images/giay/giay5.png" alt="Sản phẩm">
-                        <h4>Giấy in A4 80gsm DoubleA</h4>
-                        <p class="price">154.000đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(16,event)">Thêm vào giỏ</button>
-                    </div>
-                </div>
-            
-                <div class="head-title" onclick="redirectToCategory('khac')">
-                    <h3 class="section-title">Các sản phẩm khác</h3>
-                </div>
-                <div class="product-grid">
-                    <div class="product-item" onclick="selectProduct(4)">
-                        <img src="images/khac/ruotbutchi.png" alt="Sản phẩm">
-                        <h4>Ruột chì đen UNC</h4>
-                        <p class="price">5.500đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(4,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(6)">
-                        <img src="images/khac/ChuotchiBatos.png" alt="Sản phẩm">
-                        <h4>Chuốt chì Batos có nắp</h4>
-                        <p class="price">7.500đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(6,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(7)">
-                        <img src="images/khac/giayvesinh.png" alt="Sản phẩm">
-                        <h4>Giấy vệ sinh Japanisilk</h4>
-                        <p class="price">4.800đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(7,event)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" onclick="selectProduct(17)">
-                        <img src="images/khac/bia.png" alt="Sản phẩm">
-                        <h4>Bìa Accor nhựa Ageless</h4>
-                        <p class="price">16.000đ</p>
-                        <button class="add-to-cart" onclick="addToCartById(17,event)">Thêm vào giỏ</button>
-                    </div>
-                </div>
-            </section>
-            <section id="services">
-                <div class="service-item">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h3>&#128666; Miễn phí vận chuyển</h3>
-                    <p>Cho đơn hàng từ 300.000đ</p>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-undo"></i>
-                    <h3>&#8635; Đổi trả 7 ngày</h3>
-                    <p>Thủ tục đơn giản</p>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-lock"></i>
-                    <h3>&#x1F512; Thanh toán an toàn</h3>
-                    <p>Bảo mật 100%</p>
-                </div>
-            </section>
-        </main>
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section about">
-                    <h4>Về chúng tôi</h4>
-                    <p>Chuyên cung cấp văn phòng phẩm chất lượng cao</p>
-                </div>
-                <div class="footer-section links">
-                    <h4>Liên kết</h4>
-                    <ul>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
-                        <li><a href="#">Hướng dẫn mua hàng</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section contact">
-                    <h4>Liên hệ</h4>
-                    <p>Email: vuvietmanh2208@gmail.com | nguyenbui0410@gmail.com</p>
-                    <p>Hotline: 1800 1234</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 VPP Online. All rights reserved.</p>
-            </div>
-        </footer>
-        <ul id="fast-contact">
-            <li><a href="#" class="scroll-link">&#x2B06;</a></li>
-        </ul>
-    </div>
+  currentlyLearning: [ // status: Exploring | Learning | Practicing | Building
+    { tech: "Tích hợp API LLM (tool-call)", status: "Exploring", why: "", relatedProject: "", resources: [] } ],
+  education: [
+    { school: "Trường Đại học Hạ Long", major: "Khoa học máy tính", period: "Từ 2023", subjects: [], projects: ["QuanLyNhanVien", "NCKH về AI"] } ],
+  timeline: [ // category: Education | Project | Internship | Activity | Milestone
+    { date: "2023", title: "Trường Đại học Hạ Long", description: "Học ngành Khoa học máy tính.", category: "Education", reflection: "" },
+    { date: "2025–2026", title: "Đồ án học phần: QuanLyNhanVien", description: "Ứng dụng quản lý nhân viên C# WinForms + SQL Server, kiến trúc 3 lớp.", category: "Project", reflection: "" },
+    { date: "2026", title: "Báo cáo NCKH về AI và việc học của sinh viên CNTT", description: "Nghiên cứu khoa học tại Trường Đại học Hạ Long.", category: "Project", reflection: "" },
+    { date: "1/7/2026 – 6/9/2026", title: "Thực tập 1 tại Yazaki Hải Phòng Việt Nam – Chi nhánh Quảng Ninh", description: "Làm tại chuyền sản xuất dây điện ô tô: chuyền 4R1F (1/7–2/8), sau đó NB2F (3/8–6/9).", category: "Internship", reflection: "Thao tác nhanh hơn và làm độc lập được một vị trí." }
+  ],
+  activities: [] // dự phòng, hiện chưa hiển thị riêng
+};
+/* ============ UI ============ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ph = v => /^YOUR_/.test(v) ? `<span class="ph">${esc(v)}</span>` : esc(v);
+const link = (u, t, cls = "btn") => u ? `<a class="${cls}" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(t)}</a>` : "";
+const tags = a => (a || []).map(t => `<span class="tag">${ph(t)}</span>`).join("");
+const img = (src, alt, cls) => src ? `<img class="${cls}" src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async">` : "";
+const links = a => (a || []).map(l => link(l.url, l.label)).join("");
+const P = DATA.profile;
+const KICK = {about:"Về mình",interests:"Ngoài chuyện học",music:"Mấy bài mình hay nghe",games:"Những game mình chơi",projects:"Những thứ mình đã làm",github:"Kho code",tech:"Công nghệ đã dùng",education:"Học ở đâu",timeline:"Các mốc đáng nhớ",contact:"Liên hệ"};
+const sec = (id, title, body) => $("#" + id).innerHTML = `<p class="kick">${KICK[id] || ""}</p><h2>${esc(title)}</h2>${body}`;
+const store = { get(k){ try { return localStorage.getItem(k) } catch { return null } }, set(k, v){ try { localStorage.setItem(k, v) } catch {} } };
 
-    <script src="products.js" defer></script>
-    <script src="cart.js" defer></script>
-    <script src="login.js" defer></script>
-    <script src="type.js" defer></script>
-    <script>
-        document.querySelector('.scroll-link').addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,  // Cuộn lên đầu trang
-                behavior: 'smooth'  // Thêm hiệu ứng cuộn mượt mà
-            });
-        });
-    </script>
+// Nav + theme
+const NAV = [["home","Trang chủ"],["about","Về mình"],["interests","Sở thích"],["music","Nhạc"],["games","Game"],["projects","Dự án"],["tech","Công nghệ"],["timeline","Hành trình"],["contact","Liên hệ"]];
+$("#links").innerHTML = NAV.map(([i, t]) => `<a href="#${i}">${t}</a>`).join("");
+$("#logo").textContent = P.name;
+$("#menu").onclick = () => { const o = $("#links").classList.toggle("open"); $("#menu").setAttribute("aria-expanded", o); };
+$("#links").onclick = e => { if (e.target.tagName === "A") { $("#links").classList.remove("open"); $("#menu").setAttribute("aria-expanded", false); } };
+const saved = store.get("theme"); if (saved) document.documentElement.dataset.theme = saved;
+$("#theme").onclick = () => { const cur = document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme:light)").matches ? "light" : "dark"); const n = cur === "dark" ? "light" : "dark"; document.documentElement.dataset.theme = n; store.set("theme", n); };
+const spy = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) document.querySelectorAll("#links a").forEach(a => a.classList.toggle("on", a.hash === "#" + e.target.id)); }), { rootMargin: "-40% 0px -55% 0px" });
+document.querySelectorAll("main section").forEach(s => spy.observe(s));
+
+// Hero — identity + dashboard tiles (derived from DATA)
+const initials = P.name.split(/\s+/).map(w => w[0]).slice(0, 2).join("").toUpperCase();
+const tiles = [["Trạng thái", P.status], ["Địa điểm", P.location], ["Đang chơi", DATA.games.filter(g => g.status === "Playing").map(g => g.name).join(", ")], ["Đang học", DATA.currentlyLearning.map(l => l.tech).filter(Boolean).join(", ")], ["Dự án", Object.keys(DATA.projectSettings.content).length]].filter(t => t[1]);
+$("#home").innerHTML = `<div class="card idc">${P.avatar ? img(P.avatar, "Ảnh đại diện của " + P.name, "av") : `<div class="av" role="img" aria-label="Ảnh đại diện (chưa có)">${esc(initials)}</div>`}
+<div><p class="kick">Một góc nhỏ trên Internet</p><h1>${ph(P.name)}</h1><p class="sub">${ph(P.major)} · ${ph(P.university)}</p><p>${ph(P.tagline)}</p>
+<div class="row"><a class="btn p" href="#about">Về mình</a><a class="btn" href="#games">Game</a><a class="btn" href="#projects">Dự án</a>${DATA.socialLinks.filter(l => ["GitHub","Facebook","Email"].includes(l.label)).map(l => link(l.url, l.label)).join("")}</div></div></div>
+<div class="tiles" aria-label="Tổng quan">${tiles.map(([k, v]) => `<div class="card tile"><span class="mut">${esc(k)}</span><strong>${ph(String(v))}</strong></div>`).join("")}</div>`;
+
+// About
+const facts = [["Tên", P.name], ["Ngành", P.major], ["Trường", P.university], ["Lớp", P.className], ["Nơi ở", P.location], ["Hiện tại", P.status], ...P.quickFacts.map(f => [f.q, f.a])].filter(f => f[1]);
+sec("about", "Về mình", `<div class="two"><div class="card story">${P.story.map(p => `<p>${ph(p)}</p>`).join("")}</div>
+<div class="card"><h3>Hồ sơ nhanh</h3><dl>${facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${ph(v)}</dd>`).join("")}</dl></div></div>
+<h3 style="margin:20px 0 10px">Cách mình làm việc</h3><div class="grid">${P.workingStyle.map(w => `<div class="card"><h3>${esc(w.label)}</h3><p class="mut">${ph(w.text)}</p></div>`).join("")}</div>`);
+
+// Technical profile — công nghệ lấy từ project
+function projectTechs(projects) { return [...new Set(projects.flatMap(p => p.technologies || []))]; }
+function renderTech() {
+  const techs = projectTechs(Object.values(DATA.projectSettings.content));
+  return techs.length ? `<div class="row">${techs.map(t => `<div class="card" style="padding:10px 14px"><strong>${esc(t)}</strong></div>`).join("")}</div>` : `<div class="state">Chưa có công nghệ nào được gắn với project.</div>`;
+}
+sec("tech", "Công nghệ đã dùng", `<div class="card"><p class="mut">Chỉ những công nghệ được gắn với project mới xuất hiện ở đây.</p>${renderTech()}</div>
+<h3 style="margin:24px 0 10px">Đang tìm hiểu</h3>${DATA.currentlyLearning.length ? DATA.currentlyLearning.map(l => `<div class="card" style="margin-bottom:12px"><h3>${ph(l.tech)}</h3>${l.status ? `<span class="tag">${esc(l.status)}</span>` : ""}${l.why ? `<p class="mut">${esc(l.why)}</p>` : ""}</div>`).join("") : `<div class="state">Chưa thêm gì.</div>`}`);
+
+// Generic filter/search block
+function library(id, title, items, chipsFn, searchFn, cardFn, searchLabel, cls = "grid") {
+  const chips = ["All", ...chipsFn.all];
+  sec(id, title, `<div class="bar"><input type="search" id="${id}-q" placeholder="${searchLabel}" aria-label="${searchLabel}">${chips.map((c, i) => `<button class="chip" aria-pressed="${i === 0}" data-c="${esc(c)}">${esc(c)}</button>`).join("")}</div><div class="${cls}" id="${id}-g"></div>`);
+  let cur = "All";
+  const draw = () => { const q = $(`#${id}-q`).value.toLowerCase();
+    const r = items.filter(i => (cur === "All" || chipsFn.match(i, cur)) && (!q || searchFn(i).toLowerCase().includes(q)));
+    $(`#${id}-g`).innerHTML = r.map(cardFn).join("") || `<div class="state">Không có kết quả.</div>`; };
+  $(`#${id}-q`).oninput = draw;
+  $(`#${id}`).querySelector(".bar").onclick = e => { const b = e.target.closest(".chip"); if (!b) return; cur = b.dataset.c;
+    $(`#${id}`).querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === b)); draw(); };
+  draw();
+}
+
+// Projects — tên lấy từ GitHub, nội dung do DATA.projectSettings viết
+function projectFromRepo(r) {
+  if (DATA.projectSettings.hiddenProjects.includes(r.name)) return null;
+  const c = DATA.projectSettings.content[r.name] || {};
+  return { name:r.name, description:c.description || "Project trên GitHub.", built:c.built || [], technologies:c.technologies || [], categories:c.categories || ["Personal"], github:r.html_url, demo:r.homepage || "", image:c.image || "", period:c.period || "", role:c.role || "", status:c.status || "" };
+}
+function renderProjects(repos) {
+  const local = Object.keys(DATA.projectSettings.content).filter(n => !repos.some(r => r.name === n) && !DATA.projectSettings.hiddenProjects.includes(n)).map(n => projectFromRepo({ name: n, html_url: "", homepage: "" }));
+  const projects = [...local, ...repos.map(projectFromRepo).filter(Boolean)];
+  const shown = DATA.projectSettings.featuredProjects.length ? projects.filter(p => DATA.projectSettings.featuredProjects.includes(p.name)) : projects;
+  library("projects", "Dự án", shown,
+    { all:["Web","Desktop","Mobile","AI","IoT","Academic","Personal"], match:(p,c)=>(p.categories||[]).includes(c) },
+    p => [p.name,(p.technologies||[]).join(" "),(p.categories||[]).join(" ")].join(" "),
+    p => `<article class="pj"><div class="pjimg">${p.image ? img(p.image,p.name,"") : esc(p.name.slice(0,2).toUpperCase())}</div><div class="pjb">${p.status ? `<span class="tag">${esc(p.status)}</span>` : ""}<h3>${esc(p.name)}</h3><p>${esc(p.description)}</p>${p.built.length ? `<p class="mut"><b>Trong project này:</b></p><ul class="mut">${p.built.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>`:""}<div>${tags(p.technologies)}</div><p class="mut">${[p.period,p.role].filter(Boolean).map(esc).join(" · ")}</p><div class="row">${link(p.github,"GitHub")}${link(p.demo,"Demo")}</div></div></article>`,
+    "Tìm theo tên, công nghệ, danh mục…","showcase");
+}
+renderProjects([]);
+
+// GitHub
+const repoCard = r => `<article class="card"><h3>${esc(r.name)}</h3><p class="mut">${esc(r.description || "")}</p>
+<p class="mut">${[r.language, r.stars != null ? "★ " + r.stars : "", r.forks != null ? "⑂ " + r.forks : "", r.updated ? "Cập nhật " + new Date(r.updated).toLocaleDateString("vi-VN") : ""].filter(Boolean).map(esc).join(" · ")}</p>
+<div>${tags(r.topics)}</div><div class="row">${link(r.url, "Repository")}${link(r.homepage, "Live Demo")}</div></article>`;
+async function loadGithub() {
+  const u = DATA.github.username, box = () => $("#gh-body");
+  sec("github", "GitHub", `<div id="gh-body"><div class="state" role="status">Đang tải GitHub…</div></div>`);
+  const fb = DATA.fallbackRepos.map(repoCard).join("");
+  const fail = msg => { box().innerHTML = `<div class="state" role="alert">${msg}</div><div class="grid">${fb}</div>`; };
+  if (!u || /^YOUR_/.test(u)) return fail("Chưa nhập GitHub username (DATA.github.username).");
+  const key = "gh:" + u, c = store.get(key); let d;
+  try { const o = c && JSON.parse(c); if (o && Date.now() - o.t < DATA.github.cacheMinutes * 6e4) d = o.d; } catch {}
+  try {
+    if (!d) {
+      const [a, b] = await Promise.all([fetch(`https://api.github.com/users/${encodeURIComponent(u)}`), fetch(`https://api.github.com/users/${encodeURIComponent(u)}/repos?sort=updated&per_page=30`)]);
+      if (!a.ok || !b.ok) throw new Error(a.status === 403 || b.status === 403 ? "rate" : "http");
+      d = { user: await a.json(), repos: await b.json() }; store.set(key, JSON.stringify({ t: Date.now(), d }));
+    }
+    const excludedRepos = new Set(["tt", "test", "vpp"]);
+    const repos = d.repos
+      .filter(r => !r.fork && !excludedRepos.has(r.name))
+      .sort((x, y) => y.stargazers_count - x.stargazers_count || new Date(y.pushed_at) - new Date(x.pushed_at)); renderProjects(repos);
+    const langs = [...new Set(d.repos.map(r => r.language).filter(Boolean))];
+    box().innerHTML = `<div class="card" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:14px">${img(d.user.avatar_url, "Avatar GitHub " + d.user.login, "av")}<div style="min-width:0"><h3>${esc(d.user.login)}</h3><p class="mut">${esc(d.user.bio || "")}</p><p class="mut">${d.user.public_repos} public repos · ${esc(langs.join(", "))}</p>${link(d.user.html_url, "Mở GitHub")}</div></div>
+    <div class="grid">${repos.map(r => repoCard({ name: r.name, description: r.description, language: r.language, stars: r.stargazers_count, forks: r.forks_count, updated: r.pushed_at, topics: r.topics, url: r.html_url, homepage: r.homepage })).join("")}</div>`;
+  } catch (e) { fail("Unable to load GitHub data" + (e.message === "rate" ? " (có thể do giới hạn API, thử lại sau)." : ".")); }
+}
+loadGithub();
+
+// Games — personal library
+const stat = ["Playing","Previously Played","Paused","Completed","Dropped","Want to Play"], plat = ["PC","Mobile","Console"];
+// Ảnh bìa: g.cover nếu có, không thì thumbnail Wikipedia (g.wiki), cache trong localStorage
+const coverCache = (() => { try { return JSON.parse(store.get("covers") || "{}"); } catch { return {}; } })();
+const coverImg = g => { const u = g.cover || coverCache[g.wiki || g.name]; return u ? img(u, "Ảnh bìa " + g.name, "") : esc(g.name.slice(0, 2).toUpperCase()); };
+async function loadCovers() {
+  await Promise.all(DATA.games.filter(g => !g.cover && coverCache[g.wiki || g.name] === undefined).map(async g => {
+    const k = g.wiki || g.name; let u = "";
+    try { const res = await fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + encodeURIComponent(k)); if (res.ok) u = (await res.json()).thumbnail?.source || ""; } catch {}
+    coverCache[k] = u;
+    if (u) document.querySelectorAll("#games .cov").forEach(c => { if (c.dataset.k === k && !c.querySelector("img")) c.insertAdjacentHTML("afterbegin", img(u, "Ảnh bìa " + g.name, "")); });
+  }));
+  store.set("covers", JSON.stringify(Object.fromEntries(Object.entries(coverCache).filter(([, v]) => v))));
+}
+const gameCard = g => `<article class="gc"><div class="cov" data-k="${esc(g.wiki || g.name)}">${coverImg(g)}${g.status ? `<b class="badge">${esc(g.status)}</b>` : ""}${g.favorite ? `<i class="fav" aria-label="Yêu thích">★</i>` : ""}</div>
+  <h3 style="margin-top:8px">${ph(g.name)}</h3><p class="mut" style="margin:0">${[g.platform, g.genre].filter(Boolean).map(esc).join(" · ")}</p><p class="mut" style="margin:4px 0">${ph(g.description || "")}</p>
+  <p class="mut" style="margin:0">${[g.playtime && "⏱ " + g.playtime, g.favoriteCharacter && "Nhân vật: " + g.favoriteCharacter, g.favoriteMode && "Mode: " + g.favoriteMode].filter(Boolean).map(esc).join(" · ")}</p><div class="row" style="margin-top:6px">${link(g.link, "Link")}</div></article>`;
+library("games", "Games", DATA.games,
+  { all: ["Favorite", ...stat, ...plat], match: (g, c) => c === "Favorite" ? g.favorite : g.status === c || (g.platform || "").split(/\s*\/\s*/).includes(c) },
+  g => [g.name, g.genre, g.platform, g.status].join(" "), gameCard, "Tìm theo tên, thể loại, nền tảng, trạng thái…", "lib");
+const nowPlaying = DATA.games.filter(g => g.status === "Playing");
+if (nowPlaying.length) $("#games .bar").insertAdjacentHTML("beforebegin", `<h3>Đang chơi</h3><div class="lib" style="margin-bottom:22px">${nowPlaying.map(gameCard).join("")}</div><h3>Thư viện</h3>`);
+
+loadCovers();
+
+// Interests + music
+const musicEmbed = m => {
+  if (m.type === "youtube" && m.id) return `<iframe class="music-frame" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(m.id)}?autoplay=1&rel=0" title="${esc(m.title)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+  if (m.type === "spotify" && m.id) return `<iframe class="music-frame music-spotify" src="https://open.spotify.com/embed/track/${encodeURIComponent(m.id)}?utm_source=generator" title="${esc(m.title)}" allow="autoplay; encrypted-media" ></iframe>`;
+  return "";
+};
+const trackBtn = (m, i) => (m.type === "youtube" || m.type === "spotify") && m.id ? `<button class="btn p play" data-i="${i}" aria-label="Phát ${esc(m.title)}">▶ Phát</button>` : link(m.url, "Mở bài");
+sec("interests", "Sở thích", `<div class="mosaic">${DATA.interests.map(i => `<article class="card"><div class="big" aria-hidden="true">${esc(i.icon || "✦")}</div><h3 style="margin-top:8px">${ph(i.name)}</h3><p>${ph(i.description)}</p>${i.why ? `<p class="mut"><b>Vì sao:</b> ${esc(i.why)}</p>` : ""}${i.since ? `<p class="mut">Từ: ${esc(i.since)}</p>` : ""}<div>${tags(i.favorites)}</div><div class="row">${links(i.relatedLinks)}</div></article>`).join("")}</div>`);
+
+// Music — chạm bài nào thì chỉ nhúng/phát bài đó
+sec("music", "Nhạc", `<p class="mut">Chạm vào bài nào thì phát bài đó.</p><div class="music-grid">${DATA.music.map((m, i) => `<article class="card music-card" data-i="${i}"><h3>${esc(m.title)}</h3><p class="mut">${esc(m.artist)}${m.note ? " · " + esc(m.note) : ""}</p><div class="slot">${trackBtn(m, i)}</div></article>`).join("")}</div>`);
+$("#music .music-grid").onclick = e => {
+  const b = e.target.closest(".play"); if (!b) return;
+  const slot = b.closest(".slot"), m = DATA.music[b.dataset.i];
+  document.querySelectorAll("#music .music-card").forEach(c => { c.querySelector(".slot").innerHTML = trackBtn(DATA.music[c.dataset.i], c.dataset.i); });
+  slot.innerHTML = musicEmbed(m);
+};
+
+// Education (accordion), timeline
+sec("education", "Học tập", DATA.education.map(e => `<details class="card" style="margin-bottom:12px"><summary>${ph(e.school)} — ${ph(e.major)}${e.period ? " (" + esc(e.period) + ")" : ""}</summary>
+${e.subjects?.length ? `<p class="mut">Môn liên quan:</p><div>${tags(e.subjects)}</div>` : ""}${e.projects?.length ? `<p class="mut">Projects:</p><div>${tags(e.projects)}</div>` : ""}</details>`).join(""));
+const CAT = { Education: "#f59e0b", Project: "#6ea8ff", Internship: "#a78bfa", Activity: "#34d399", Milestone: "#22d3ee" };
+sec("timeline", "Hành trình", `<p class="mut">Một vài mốc mình muốn giữ lại.</p><div class="tl">${DATA.timeline.map(t => `<div class="card" style="--c:${CAT[t.category] || "var(--ac)"}"><span class="tag" style="color:var(--c);border-color:var(--c)">${esc(t.category)}</span> <span class="mut">${ph(t.date)}</span><h3>${ph(t.title)}</h3><p class="mut">${ph(t.description)}</p>${t.reflection ? `<p class="refl">“${esc(t.reflection)}”</p>` : ""}</div>`).join("")}</div>`);
+
+// Contact
+const shown = DATA.socialLinks.filter(l => l.url);
+sec("contact", "Tìm mình ở đây", shown.length ? `<div class="row">${shown.map(l => link(l.url, l.label)).join("")}</div>` : `<div class="state">Chưa có link nào (DATA.socialLinks).</div>`);
+$("#foot").textContent = `© ${new Date().getFullYear()} ${P.name}`;
+</script>
 </body>
 </html>
