@@ -64,7 +64,7 @@ dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px}dt{color:va
 .mosaic{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}.big{font-size:2.2rem;line-height:1}
 .lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}.gc{min-width:0}
 .cov{position:relative;aspect-ratio:2/3;border-radius:12px;overflow:hidden;border:1px solid var(--bd);background:linear-gradient(160deg,color-mix(in srgb,var(--sa) 35%,var(--bg)),var(--bg));display:grid;place-items:center;font-size:2rem;font-weight:700;color:var(--mut);transition:transform .15s}
-.gc:hover .cov{transform:translateY(-3px)}.cov img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gc{cursor:pointer}.gc:hover .cov{transform:translateY(-3px)}.cov img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.game-logo{width:72%;height:72%;object-fit:contain!important;inset:14%!important}.game-open{display:block;color:inherit;text-decoration:none}.game-modal{position:fixed;inset:0;z-index:30;display:none;place-items:center;padding:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px)}.game-modal.open{display:grid}.game-dialog{width:min(680px,100%);max-height:min(760px,90vh);overflow:auto;background:var(--bg);border:1px solid var(--bd);border-radius:18px;padding:20px;box-shadow:0 20px 80px rgba(0,0,0,.4)}.game-head{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center}.game-head .cov{width:120px}.game-close{float:right}.game-meta{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}@media(max-width:520px){.game-head{grid-template-columns:1fr}.game-head .cov{width:110px}}
 .badge{position:absolute;left:8px;bottom:8px;font-size:11px;padding:2px 8px;border-radius:99px;background:var(--sa);color:#04130c}.fav{position:absolute;right:8px;top:8px;font-style:normal;color:#fbbf24}
 .showcase{display:grid;gap:18px}.pj{display:grid;grid-template-columns:1fr 1.2fr;border:1px solid var(--bd);border-radius:16px;overflow:hidden;background:var(--card)}
 .pjimg{min-height:200px;position:relative;background:linear-gradient(135deg,color-mix(in srgb,var(--sa) 40%,var(--bg)),var(--bg));display:grid;place-items:center;font-size:3rem;font-weight:700;color:var(--mut)}
@@ -111,10 +111,10 @@ const DATA = {
       { q: "Đang tìm hiểu", a: "Tiếng Trung, Hán Việt, API LLM" }
     ],
     workingStyle: [
-      { label: "Cách học", text: "Thường học theo project hoặc thứ đang cần dùng; hiểu đến đâu dùng đến đó." },
-      { label: "Cách làm project", text: "Tách lớp rõ ràng (GUI / BLL / DAL) và làm tài liệu đúng quy chuẩn của trường." },
-      { label: "Cách dùng AI", text: "Dùng AI để soạn thảo và sinh code, nhưng đọc lại, sửa có chủ đích thay vì nhận nguyên, và giữ nguyên văn bản gốc khi cần." },
-      { label: "Đang cải thiện", text: "Làm project gọn hơn, bớt vòng vo và hiểu kỹ hơn những thứ mình dùng." }
+      { label: "Học thế nào", text: "Có project hoặc việc cần làm thì học đúng phần đó trước, vừa làm vừa bổ sung kiến thức." },
+      { label: "Làm project", text: "Ưu tiên làm cho chạy và hiểu được luồng chính trước, sau đó mới chỉnh cấu trúc và hoàn thiện." },
+      { label: "Dùng AI", text: "Dùng AI để gỡ chỗ bí hoặc dựng phần mất thời gian, rồi tự đọc, test và sửa lại theo ý mình." },
+      { label: "Ưu tiên hiện tại", text: "Giữ project gọn, tránh thêm thứ không cần và hiểu rõ hơn những công nghệ đang dùng." }
     ],
   },
   socialLinks: [ // url rỗng = không hiển thị
@@ -315,9 +315,8 @@ async function loadCovers() {
   }));
   store.set("covers", JSON.stringify(Object.fromEntries(Object.entries(coverCache).filter(([, v]) => v))));
 }
-const gameCard = g => `<article class="gc"><div class="cov" data-k="${esc(g.wiki || g.name)}">${coverImg(g)}${g.status ? `<b class="badge">${esc(g.status)}</b>` : ""}${g.favorite ? `<i class="fav" aria-label="Yêu thích">★</i>` : ""}</div>
-  <h3 style="margin-top:8px">${ph(g.name)}</h3><p class="mut" style="margin:0">${[g.platform, g.genre].filter(Boolean).map(esc).join(" · ")}</p><p class="mut" style="margin:4px 0">${ph(g.description || "")}</p>
-  <p class="mut" style="margin:0">${[g.playtime && "⏱ " + g.playtime, g.favoriteCharacter && "Nhân vật: " + g.favoriteCharacter, g.favoriteMode && "Mode: " + g.favoriteMode].filter(Boolean).map(esc).join(" · ")}</p><div class="row" style="margin-top:6px">${link(g.link, "Link")}</div></article>`;
+const gameCard = (g, i = DATA.games.indexOf(g)) => `<article class="gc" data-game="${i}" tabindex="0" role="button" aria-label="Xem profile ${esc(g.name)}"><div class="cov" data-k="${esc(g.wiki || g.name)}">${coverImg(g)}${g.status ? `<b class="badge">${esc(g.status)}</b>` : ""}${g.favorite ? `<i class="fav" aria-label="Yêu thích">★</i>` : ""}</div>
+  <h3 style="margin-top:8px">${ph(g.name)}</h3><p class="mut" style="margin:0">${[g.platform, g.genre].filter(Boolean).map(esc).join(" · ")}</p></article>`;
 library("games", "Games", DATA.games,
   { all: ["Favorite", ...stat, ...plat], match: (g, c) => c === "Favorite" ? g.favorite : g.status === c || (g.platform || "").split(/\s*\/\s*/).includes(c) },
   g => [g.name, g.genre, g.platform, g.status].join(" "), gameCard, "Tìm theo tên, thể loại, nền tảng, trạng thái…", "lib");
@@ -325,6 +324,28 @@ const nowPlaying = DATA.games.filter(g => g.status === "Playing");
 if (nowPlaying.length) $("#games .bar").insertAdjacentHTML("beforebegin", `<h3>Đang chơi</h3><div class="lib" style="margin-bottom:22px">${nowPlaying.map(gameCard).join("")}</div><h3>Thư viện</h3>`);
 
 loadCovers();
+
+const gameModal = document.createElement("div");
+gameModal.className = "game-modal";
+gameModal.id = "game-modal";
+gameModal.innerHTML = `<div class="game-dialog" role="dialog" aria-modal="true" aria-labelledby="game-title">
+  <button class="ib game-close" type="button" aria-label="Đóng">✕</button>
+  <div id="game-profile"></div>
+</div>`;
+document.body.appendChild(gameModal);
+const openGameProfile = g => {
+  const cover = g.cover || coverCache[g.wiki || g.name] || "";
+  $("#game-profile").innerHTML = `<div class="game-head"><div class="cov">${cover ? img(cover, "Logo " + g.name, "game-logo") : esc(g.name.slice(0,2).toUpperCase())}</div><div><p class="kick">Game profile</p><h2 id="game-title">${esc(g.name)}</h2><div class="game-meta">${[g.status, g.platform, g.genre].filter(Boolean).map(x => `<span class="tag">${esc(x)}</span>`).join("")}${g.favorite ? `<span class="tag">★ Yêu thích</span>` : ""}</div></div></div>
+  ${g.description ? `<p>${esc(g.description)}</p>` : ""}
+  ${[g.playtime && ["Thời gian chơi",g.playtime], g.favoriteCharacter && ["Nhân vật thích",g.favoriteCharacter], g.favoriteMode && ["Mode thích",g.favoriteMode]].filter(Boolean).length ? `<dl>${[g.playtime && ["Thời gian chơi",g.playtime], g.favoriteCharacter && ["Nhân vật thích",g.favoriteCharacter], g.favoriteMode && ["Mode thích",g.favoriteMode]].filter(Boolean).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>` : ""}
+  ${g.link ? `<div class="row">${link(g.link,"Mở link game")}</div>` : ""}
+  <p class="mut">Nhấn ra ngoài hoặc nút ✕ để đóng.</p>`;
+  gameModal.classList.add("open");
+};
+$("#games").addEventListener("click", e => { const card = e.target.closest(".gc"); if (!card) return; openGameProfile(DATA.games[Number(card.dataset.game)]); });
+$("#games").addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.closest(".gc")) { e.preventDefault(); openGameProfile(DATA.games[Number(e.target.closest(".gc").dataset.game)]); } });
+gameModal.addEventListener("click", e => { if (e.target === gameModal || e.target.closest(".game-close")) gameModal.classList.remove("open"); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") gameModal.classList.remove("open"); });
 
 // Interests + music
 const musicEmbed = m => {
